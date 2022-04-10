@@ -1,12 +1,12 @@
-﻿namespace MyBookManager
+﻿using System;
+
+namespace MyBookManager
 {
     public static class AppGloableData
     {
-        public static readonly string appGamesFolderName = "GamesCollectionLib";
         public static readonly string appBooksFolderName = "BookCollectionLib";
         public static readonly int appBeginId = -1;
 
-        private static int appGameCollectionBaseID = 0;
         private static int appBookCollectionBaseID = 0;
 
         public enum Types { BOOK, GAME }
@@ -46,9 +46,8 @@
         //中,日,韩,美,英,法,西班牙,葡萄牙,德国,意大利,俄罗斯,其他
         public enum Country { CN, JP, KR, US, UK, FR, ES, PT, DE, IT, RU, OTHER }
 
-        public static void initGameAndBookCollectionBaseID(int gcID, int bcID)
+        public static void initGameAndBookCollectionBaseID(int bcID)
         {
-            appGameCollectionBaseID = gcID;
             appBookCollectionBaseID = bcID;
         }
 
@@ -57,19 +56,144 @@
             return appBookCollectionBaseID;
         }
 
-        public static int getNewGameCollectionID()
-        {
-            return appGameCollectionBaseID;
-        }
-
         public static void plusBookCollectionID()
         {
             appBookCollectionBaseID++;
         }
 
-        public static void plusGameCollectionID()
+        public static string[] getLanguageDrawNameList() 
         {
-            appGameCollectionBaseID++;
+            int listSize = Enum.GetNames(typeof(AppGloableData.Language)).Length;
+            string[] lanDrawNameList = new string[listSize];
+
+            for (int i = 0; i < listSize; i++)
+            {
+                switch ((AppGloableData.Language)i)
+                {
+                    case AppGloableData.Language.CN:
+                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_CN");
+                        break;
+                    case AppGloableData.Language.TW:
+                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_TW");
+                        break;
+                    case AppGloableData.Language.JP:
+                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_JP");
+                        break;
+                    case AppGloableData.Language.KR:
+                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_KR");
+                        break;
+                    case AppGloableData.Language.EN:
+                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_EN");
+                        break;
+
+                    case AppGloableData.Language.OTHER:
+                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_Other");
+                        break;
+                    case AppGloableData.Language.FR:
+                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_FR");
+                        break;
+                    case AppGloableData.Language.ES:
+                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_ES");
+                        break;
+                    case AppGloableData.Language.PT:
+                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_PT");
+                        break;
+                    case AppGloableData.Language.DE:
+                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_DE");
+                        break;
+
+                    case AppGloableData.Language.IT:
+                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_IT");
+                        break;
+                    case AppGloableData.Language.RU:
+                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_RU");
+                        break;
+                }
+            }
+
+            return lanDrawNameList;
+        }
+
+        public static int getLanguageEnumIndexByDrawName(string drawName) 
+        {
+            string[] drawNameList = getLanguageDrawNameList();
+            int index = 0;
+            for(int i = 0; i < drawNameList.Length; i++)
+            {
+                if (drawNameList[i] == drawName) 
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }
+
+        public static string[] getCountryDrawNameList() 
+        {
+            int listSize = Enum.GetNames(typeof(AppGloableData.Country)).Length;
+            string[] couDrawNameList = new string[listSize];
+            for (int i = 0; i < listSize; i++)
+            {
+                switch ((AppGloableData.Country)i)
+                {
+                    case AppGloableData.Country.CN:
+                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_CN");
+                        break;
+                    case AppGloableData.Country.JP:
+                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_JP");
+                        break;
+                    case AppGloableData.Country.KR:
+                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_KR");
+                        break;
+                    case AppGloableData.Country.US:
+                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_US");
+                        break;
+                    case AppGloableData.Country.UK:
+                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_UK");
+                        break;
+
+                    case AppGloableData.Country.FR:
+                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_FR");
+                        break;
+                    case AppGloableData.Country.ES:
+                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_ES");
+                        break;
+                    case AppGloableData.Country.PT:
+                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_PT");
+                        break;
+                    case AppGloableData.Country.DE:
+                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_DE");
+                        break;
+                    case AppGloableData.Country.IT:
+                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_IT");
+                        break;
+
+                    case AppGloableData.Country.RU:
+                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_RU");
+                        break;
+                    case AppGloableData.Country.OTHER:
+                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_OTHER");
+                        break;
+                }
+            }
+
+            return couDrawNameList;
+        }
+
+        public static int getCountryEnumIndexByDrawName(string drawName)
+        {
+            string[] drawNameList = getCountryDrawNameList();
+            int index = 0;
+            for (int i = 0; i < drawNameList.Length; i++)
+            {
+                if (drawNameList[i] == drawName)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
         }
     }
 }

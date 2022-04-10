@@ -1,0 +1,32 @@
+﻿<ContentDialog
+    x:Class="MyBookManager.CustomTagEditDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyBookManager.src.xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Uid="ViewBook_Edit_Dialog"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid>
+        <RelativePanel Padding="10,10,10,10">
+            <TextBlock x:Name="labelTitle" FontSize="13"/>
+            <TextBox x:Name="inputTags" MaxLength="64" Margin="0,5,0,0" Width="211" Height="32" RelativePanel.Below="labelTitle" TextChanged="inputTags_TextChanged"/>
+            <Button x:Name="addTag" Margin="5,5,0,0" Width="32" Height="32" RelativePanel.RightOf="inputTags" RelativePanel.Below="labelTitle" FontFamily="Segoe MDL2 Assets" Content="&#xf0ae;" HorizontalAlignment="Center" Click="addTag_Click">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Btn_CreateBook_AddTag"/>
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button x:Name="removeLastTag" Margin="5,5,0,0" Width="32" Height="32" RelativePanel.RightOf="addTag" RelativePanel.Below="labelTitle" FontFamily="Segoe MDL2 Assets" Content="&#xE925;" HorizontalAlignment="Center" FontSize="14" Click="removeLastTag_Click">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Btn_CreateBook_Delete_Last_Tag"/>
+                </ToolTipService.ToolTip>
+            </Button>
+            <Border RelativePanel.Below="inputTags" Margin="0,5,0,0" Width="285" BorderThickness="1" BorderBrush="Gray" Background="LightGray">
+                <TextBlock x:Name="inputedTags" Width="285" TextWrapping="Wrap" MinHeight="64"/>
+            </Border>
+        </RelativePanel>
+    </Grid>
+</ContentDialog>

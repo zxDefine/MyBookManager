@@ -1,12 +1,12 @@
 ﻿using MyBookManager.src.xaml;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI;
@@ -33,6 +33,8 @@ namespace MyBookManager
         private int booksCollectionListPreCount = 0;
         private bool forceNoSave_ChangeBookCollection = false;
         private bool forceNoSave_CreateNewBookCollection = false;
+
+        private ArrayList addNewBookIdList = new ArrayList();
 
         private Brush saveBtnBG;
         private Brush saveBtnFontColor;
@@ -85,104 +87,12 @@ namespace MyBookManager
 
         private void initLanguageComboBox()
         {
-            int listSize = Enum.GetNames(typeof(AppGloableData.Language)).Length;
-            string[] lanDrawNameList = new string[listSize];
-            for(int i = 0; i < listSize; i++)
-            {
-                switch ((AppGloableData.Language)i)
-                {
-                    case AppGloableData.Language.CN:
-                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_CN");
-                        break;
-                    case AppGloableData.Language.TW:
-                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_TW");
-                        break;
-                    case AppGloableData.Language.JP:
-                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_JP");
-                        break;
-                    case AppGloableData.Language.KR:
-                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_KR");
-                        break;
-                    case AppGloableData.Language.EN:
-                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_EN");
-                        break;
-
-                    case AppGloableData.Language.OTHER:
-                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_Other");
-                        break;
-                    case AppGloableData.Language.FR:
-                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_FR");
-                        break;
-                    case AppGloableData.Language.ES:
-                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_ES");
-                        break;
-                    case AppGloableData.Language.PT:
-                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_PT");
-                        break;
-                    case AppGloableData.Language.DE:
-                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_DE");
-                        break;
-
-                    case AppGloableData.Language.IT:
-                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_IT");
-                        break;
-                    case AppGloableData.Language.RU:
-                        lanDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Language_RU");
-                        break;
-                }
-            }
-            inputLanguage.ItemsSource = lanDrawNameList;
+            inputLanguage.ItemsSource = AppGloableData.getLanguageDrawNameList();
         }
 
         private void initCountryComboBox()
         {
-            int listSize = Enum.GetNames(typeof(AppGloableData.Country)).Length;
-            string[] couDrawNameList = new string[listSize];
-            for (int i = 0; i < listSize; i++)
-            {
-                switch ((AppGloableData.Country)i)
-                {
-                    case AppGloableData.Country.CN:
-                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_CN");
-                        break;
-                    case AppGloableData.Country.JP:
-                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_JP");
-                        break;
-                    case AppGloableData.Country.KR:
-                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_KR");
-                        break;
-                    case AppGloableData.Country.US:
-                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_US");
-                        break;
-                    case AppGloableData.Country.UK:
-                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_UK");
-                        break;
-
-                    case AppGloableData.Country.FR:
-                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_FR");
-                        break;
-                    case AppGloableData.Country.ES:
-                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_ES");
-                        break;
-                    case AppGloableData.Country.PT:
-                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_PT");
-                        break;
-                    case AppGloableData.Country.DE:
-                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_DE");
-                        break;
-                    case AppGloableData.Country.IT:
-                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_IT");
-                        break;
-
-                    case AppGloableData.Country.RU:
-                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_RU");
-                        break;
-                    case AppGloableData.Country.OTHER:
-                        couDrawNameList[i] = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Country_OTHER");
-                        break;
-                }
-            }
-            inputCountry.ItemsSource = couDrawNameList;
+            inputCountry.ItemsSource = AppGloableData.getCountryDrawNameList();
         }
 
         private async void btn_Back_Click(object sender, RoutedEventArgs e)
@@ -309,7 +219,7 @@ namespace MyBookManager
             Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
             if(file != null)
             {
-                currentImageBase64Str = await ResizeImageAndChangeToBase64(file, ((int)imageBorder.Width) - 2, ((int)imageBorder.Height) - 2);
+                currentImageBase64Str = await CommonFunction.ResizeImageAndChangeToBase64(file, ((int)imageBorder.Width) - 2, ((int)imageBorder.Height) - 2);
                 if("" == currentImageBase64Str)
                 {
                     byte[] bytes = (await FileIO.ReadBufferAsync(file)).ToArray();
@@ -566,52 +476,6 @@ namespace MyBookManager
             coverImage.Source = bitmap;
         }
 
-        private async Task<string> ResizeImageAndChangeToBase64(StorageFile imagefile, int reqWidth, int reqHeight)
-        {
-            //open file as stream
-            using (IRandomAccessStream fileStream = await imagefile.OpenAsync(FileAccessMode.ReadWrite))
-            {
-                var decoder = await BitmapDecoder.CreateAsync(fileStream);
-
-                //如果Image大小比变化后的Size小的话
-                if (decoder.PixelWidth <= reqWidth && decoder.PixelHeight <= reqHeight) return "";
-
-                var resizedStream = new InMemoryRandomAccessStream();
-
-                BitmapEncoder encoder = await BitmapEncoder.CreateForTranscodingAsync(resizedStream, decoder);
-                double widthRatio = (double)reqWidth / decoder.PixelWidth;
-                double heightRatio = (double)reqHeight / decoder.PixelHeight;
-
-                double scaleRatio = Math.Min(widthRatio, heightRatio);
-
-                if (reqWidth == 0)
-                    scaleRatio = heightRatio;
-
-                if (reqHeight == 0)
-                    scaleRatio = widthRatio;
-
-                uint aspectHeight = (uint)Math.Floor(decoder.PixelHeight * scaleRatio);
-                uint aspectWidth = (uint)Math.Floor(decoder.PixelWidth * scaleRatio);
-
-                encoder.BitmapTransform.InterpolationMode = BitmapInterpolationMode.Linear;
-
-                encoder.BitmapTransform.ScaledHeight = aspectHeight;
-                encoder.BitmapTransform.ScaledWidth = aspectWidth;
-
-                await encoder.FlushAsync();
-                resizedStream.Seek(0);
-                var outBuffer = new byte[resizedStream.Size];
-                await resizedStream.ReadAsync(outBuffer.AsBuffer(), (uint)resizedStream.Size, InputStreamOptions.None);
-
-                return Convert.ToBase64String(outBuffer);
-
-                //输出到文件,这里并不需要输出,所以注释掉,但为了借鉴,保留代码
-                //StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-                //StorageFile sampleFile = await storageFolder.CreateFileAsync("testZhou.jpg", CreationCollisionOption.ReplaceExisting);
-                //await FileIO.WriteBytesAsync(sampleFile, outBuffer);
-            }
-        }
-
         private async void add_book_info_Click(object sender, RoutedEventArgs e)
         {
             string titleText = inputTitle.Text;
@@ -721,6 +585,7 @@ namespace MyBookManager
                     }
 
                     bookCollection.BookList.Add(newBook);
+                    addNewBookIdList.Add(newBook.Id);
 
                     refreshListView();
 
@@ -808,6 +673,11 @@ namespace MyBookManager
                 //update the count parameter
                 booksCollectionListPreCount = bookCollection.BookList.Count;
 
+                //new book list clear
+                addNewBookIdList.Clear();
+
+                refreshListView();
+
                 return true;
             }
             return false;
@@ -841,7 +711,19 @@ namespace MyBookManager
             listview_book_list.Items.Clear();
             foreach (var info in bookCollection.BookList)
             {
-                listview_book_list.Items.Add(info.Id.ToString().PadLeft(5, '0') + " - " + info.Title);
+                Boolean bNewBook = false;
+                foreach (int newBookId in addNewBookIdList) 
+                {
+                    if (newBookId == info.Id) 
+                    {
+                        bNewBook = true;
+                        break;
+                    }
+                }
+                listview_book_list.Items.Add( (bNewBook ? " * " : "   ") 
+                    + info.Id.ToString().PadLeft(5, '0') 
+                    + " - " 
+                    + info.Title);
             }
 
             clearAll();
@@ -879,6 +761,20 @@ namespace MyBookManager
             ContentDialogResult result = await dialog.ShowAsync();
             if (result == ContentDialogResult.Primary) return true;
             else return false;
+        }
+
+        private void inputTags_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textBox = (TextBox)sender;
+            if (textBox.Text != "")
+            {
+                if (textBox.Text[textBox.Text.Length - 1] == '#')
+                {
+                    int pos = textBox.SelectionStart - 1;
+                    textBox.Text = textBox.Text.Remove(pos, 1);
+                    textBox.SelectionStart = pos;
+                }
+            }
         }
     }
 }

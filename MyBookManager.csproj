@@ -129,14 +129,25 @@
     <Compile Include="src\class\AppGloableData.cs" />
     <Compile Include="src\class\BookClass.cs" />
     <Compile Include="src\class\BookCollectionClass.cs" />
-    <Compile Include="src\class\GameClass.cs" />
-    <Compile Include="src\class\GameCollectionClass.cs" />
+    <Compile Include="src\class\CommonFunction.cs" />
     <Compile Include="src\class\GoogleBooksInfo.cs" />
     <Compile Include="src\xaml\CreateNewCollectionContentDialog.xaml.cs">
       <DependentUpon>CreateNewCollectionContentDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\xaml\CustomTagEditDialog.xaml.cs">
+      <DependentUpon>CustomTagEditDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\xaml\DateBoxEditDialog.xaml.cs">
+      <DependentUpon>DateBoxEditDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\xaml\DropdownBoxEditDialog.xaml.cs">
+      <DependentUpon>DropdownBoxEditDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\xaml\LoadingDialog.xaml.cs">
       <DependentUpon>LoadingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\xaml\MultiTextEditDialog.xaml.cs">
+      <DependentUpon>MultiTextEditDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\xaml\SingleTextEditDialog.xaml.cs">
       <DependentUpon>SingleTextEditDialog.xaml</DependentUpon>
@@ -147,16 +158,10 @@
     <Compile Include="src\xaml\AddNewBookPage.xaml.cs">
       <DependentUpon>AddNewBookPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\xaml\AddNewGamePage.xaml.cs">
-      <DependentUpon>AddNewGamePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\xaml\ViewGameCollectionPage.xaml.cs">
-      <DependentUpon>ViewGameCollectionPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -183,7 +188,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="src\xaml\CustomTagEditDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\xaml\DateBoxEditDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\xaml\DropdownBoxEditDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="src\xaml\LoadingDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\xaml\MultiTextEditDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,17 +220,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="src\xaml\AddNewGamePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="src\xaml\ViewGameCollectionPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>

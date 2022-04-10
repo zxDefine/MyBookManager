@@ -8,6 +8,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -25,12 +26,18 @@ namespace MyBookManager
 
         private Brush borderBG;
         private bool isEditMode = false;
+        private int currSelectBookId = -1;
+
+        private Brush saveBtnBG;
+        private Brush saveBtnFontColor;
 
         public ViewBookCollectionPage()
         {
             this.InitializeComponent();
 
             borderBG = editISBNBorder.Background;
+            saveBtnBG = save_book_info.Background;
+            saveBtnFontColor = save_book_info.Foreground;
 
             updateCollectionList();
         }
@@ -102,12 +109,36 @@ namespace MyBookManager
 
             coverImage.Source = new BitmapImage(new Uri("ms-appx:///Assets/defultNoImage.png"));
             currentImageBase64Str = "";
+
+            currSelectBookId = -1;
         }
 
-        private void coverImage_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private async void coverImage_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             if (!imageEnable) return;
 
+            var picker = new Windows.Storage.Pickers.FileOpenPicker();
+            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+            picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
+            picker.FileTypeFilter.Add(".jpg");
+            picker.FileTypeFilter.Add(".jpeg");
+            picker.FileTypeFilter.Add(".bmp");
+            picker.FileTypeFilter.Add(".png");
+
+            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
+            if (file != null)
+            {
+                currentImageBase64Str = await CommonFunction.ResizeImageAndChangeToBase64(file, ((int)imageBorder.Width) - 2, ((int)imageBorder.Height) - 2);
+                if ("" == currentImageBase64Str)
+                {
+                    byte[] bytes = (await FileIO.ReadBufferAsync(file)).ToArray();
+                    currentImageBase64Str = Convert.ToBase64String(bytes);
+                }
+
+                reLoadImage();
+
+                setTheEditStatus(true, AppGloableData.CollectionParameter.BOOK_IMAGE);
+            }
         }
 
         private async void combobox_book_collections_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -124,20 +155,26 @@ namespace MyBookManager
             if (bookCollection != null && bookCollection.BookList != null) bookCollection.BookList.Clear();
             bookCollection = JsonConvert.DeserializeObject<BookCollectionClass>(bookInfoStr);
 
-            refreshListView();
+            refreshListView(false);
             resetListTotalNum();
         }
 
         //刷新ListView
-        private void refreshListView()
+        private void refreshListView(bool bNoClear)
         {
             listview_book_list.Items.Clear();
             foreach (var info in bookCollection.BookList)
             {
-                listview_book_list.Items.Add(info.Id.ToString().PadLeft(5, '0') + " - " + info.Title);
+                listview_book_list.Items.Add( ((currSelectBookId != -1 && currSelectBookId == info.Id) ? " * " : "   ")
+                    + info.Id.ToString().PadLeft(5, '0') 
+                    + " - " 
+                    + info.Title);
             }
 
-            clearAll();
+            if (!bNoClear)
+            {
+                clearAll();
+            }
         }
 
         private void listview_book_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -180,6 +217,9 @@ namespace MyBookManager
                     currentImageBase64Str = bookInfo.CoverImageBase64;
 
                     reLoadImage();
+
+                    currSelectBookId = bookInfo.Id;
+
                     break;
                 }
             }
@@ -257,6 +297,9 @@ namespace MyBookManager
             if (flg)
             {
                 isEditMode = true;
+                setSaveBtnRed(true);
+
+                refreshListView(true);
             }
         }
 
@@ -277,6 +320,7 @@ namespace MyBookManager
                 case AppGloableData.CollectionParameter.BOOK_PRICE: editPriceBorder.Background = flg ? new SolidColorBrush(Color.FromArgb(255, 255, 0, 0)) : borderBG; break;
                 case AppGloableData.CollectionParameter.BOOK_TAGS: editTagsBorder.Background = flg ? new SolidColorBrush(Color.FromArgb(255, 255, 0, 0)) : borderBG; break;
                 case AppGloableData.CollectionParameter.BOOK_CATEGORYS: editCategorysBorder.Background = flg ? new SolidColorBrush(Color.FromArgb(255, 255, 0, 0)) : borderBG; break;
+                case AppGloableData.CollectionParameter.BOOK_IMAGE: break;
             }
         }
 
@@ -288,6 +332,125 @@ namespace MyBookManager
             {
                 editPublisher.Text = dialog.Content.ToString();
                 setTheEditStatus(true, AppGloableData.CollectionParameter.BOOK_PUBLISHERS);
+            }
+        }
+
+        private async void editAuthorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MultiTextEditDialog dialog = new MultiTextEditDialog(AppGloableData.CollectionParameter.BOOK_AUTHOR, editAuthor.Text);
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (ContentDialogResult.Primary == result)
+            {
+                editAuthor.Text = dialog.Content.ToString();
+                setTheEditStatus(true, AppGloableData.CollectionParameter.BOOK_AUTHOR);
+            }
+        }
+
+        private async void editTranslatorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MultiTextEditDialog dialog = new MultiTextEditDialog(AppGloableData.CollectionParameter.BOOK_TRANSLATOR, editTranslator.Text);
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (ContentDialogResult.Primary == result)
+            {
+                editTranslator.Text = dialog.Content.ToString();
+                setTheEditStatus(true, AppGloableData.CollectionParameter.BOOK_TRANSLATOR);
+            }
+        }
+
+        private async void editCategorysBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MultiTextEditDialog dialog = new MultiTextEditDialog(AppGloableData.CollectionParameter.BOOK_CATEGORYS, editCategorys.Text);
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (ContentDialogResult.Primary == result)
+            {
+                editCategorys.Text = dialog.Content.ToString();
+                setTheEditStatus(true, AppGloableData.CollectionParameter.BOOK_CATEGORYS);
+            }
+        }
+
+        private async void editDescriptionBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MultiTextEditDialog dialog = new MultiTextEditDialog(AppGloableData.CollectionParameter.BOOK_DESCRIPTION, editDescription.Text);
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (ContentDialogResult.Primary == result)
+            {
+                editDescription.Text = dialog.Content.ToString();
+                setTheEditStatus(true, AppGloableData.CollectionParameter.BOOK_DESCRIPTION);
+            }
+        }
+
+        private async void editLanguageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DropdownBoxEditDialog dialog = new DropdownBoxEditDialog(
+                AppGloableData.CollectionParameter.BOOK_LANGUAGES,
+                AppGloableData.getLanguageEnumIndexByDrawName(editLanguage.Text));
+
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (ContentDialogResult.Primary == result)
+            {
+                editLanguage.Text = dialog.Content.ToString();
+                setTheEditStatus(true, AppGloableData.CollectionParameter.BOOK_LANGUAGES);
+            }
+        }
+
+        private async void editCountryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DropdownBoxEditDialog dialog = new DropdownBoxEditDialog(
+                AppGloableData.CollectionParameter.BOOK_COUNTRY,
+                AppGloableData.getCountryEnumIndexByDrawName(editCountry.Text));
+
+            ContentDialogResult result = await dialog.ShowAsync();
+            if(ContentDialogResult.Primary == result)
+            {
+                editCountry.Text = dialog.Content.ToString();
+                setTheEditStatus(true, AppGloableData.CollectionParameter.BOOK_COUNTRY);
+            }
+        }
+
+        private async void editPublishDateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DateBoxEditDialog dialog = new DateBoxEditDialog(
+                AppGloableData.CollectionParameter.BOOK_PUBLISHDATE, 
+                editPublishDate.Text);
+
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (ContentDialogResult.Primary == result)
+            { 
+                editPublishDate.Text = dialog.Content.ToString();
+                setTheEditStatus(true, AppGloableData.CollectionParameter.BOOK_PUBLISHDATE);
+            }
+        }
+
+        private async void editTagsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CustomTagEditDialog dialog = new CustomTagEditDialog(
+                AppGloableData.CollectionParameter.BOOK_TAGS, 
+                editTags.Text);
+
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (ContentDialogResult.Primary == result) 
+            {
+                editTags.Text = dialog.Content.ToString();
+                setTheEditStatus(true, AppGloableData.CollectionParameter.BOOK_TAGS);
+            }
+        }
+
+        private void save_book_info_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void setSaveBtnRed(bool flg)
+        {
+            if (flg)
+            {
+                save_book_info.Background = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+                save_book_info.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+            }
+            else
+            {
+                save_book_info.Background = saveBtnBG;
+                save_book_info.Foreground = saveBtnFontColor;
             }
         }
     }

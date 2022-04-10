@@ -24,18 +24,6 @@ namespace MyBookManager
         {
             StorageFolder folder = ApplicationData.Current.RoamingFolder;
             int bookBaseID = AppGloableData.appBeginId;
-            int gameBaseID = AppGloableData.appBeginId;
-            try
-            {
-                _ = await folder.CreateFolderAsync(AppGloableData.appGamesFolderName);
-            }
-            catch(Exception)
-            {
-                /// 已经创建
-                var gamesFolder = await ApplicationData.Current.RoamingFolder.GetFolderAsync(AppGloableData.appGamesFolderName);
-                IReadOnlyList<StorageFile> fileList = await gamesFolder.GetFilesAsync();
-                gameBaseID = findBookAndGameFileBaseID(fileList);
-            }
 
             try
             {
@@ -49,7 +37,7 @@ namespace MyBookManager
                 bookBaseID = findBookAndGameFileBaseID(fileList);
             }
 
-            AppGloableData.initGameAndBookCollectionBaseID(gameBaseID, bookBaseID);
+            AppGloableData.initGameAndBookCollectionBaseID(bookBaseID);
         }
 
         /// <summary>
@@ -199,22 +187,10 @@ namespace MyBookManager
             value.SelectedItem = null;
         }
 
-        private void btn_new_game_Click(object sender, RoutedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(AddNewGamePage));
-        }
-
         private void btn_new_book_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(AddNewBookPage));
-        }
-
-        private void btn_game_view_Click(object sender, RoutedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(ViewGameCollectionPage));
         }
 
         private void btn_book_view_Click(object sender, RoutedEventArgs e)
