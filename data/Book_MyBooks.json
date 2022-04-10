@@ -1,0 +1,68 @@
+{
+	"id" : 1 ,
+	"name" : "MyBooks" ,
+	"created_date" : "2021-07-31 15:36",
+	"note" : "我的图书库",
+	"contents" : [
+		{
+			"id" : 1,
+			"name" : "Unity2D游戏开发 使用C#进行独立游戏编程",
+			"isbn" : "9787302550525",
+			"picture" : "1.png",
+			"language" : [
+				"Chinese"
+			],
+			"publisher" : [
+				"清华大学出版社"
+			],
+			"publish_date" : "2020-6",
+			"author" : [
+				"[美]杰瑞德·哈尔彭" 
+			],
+			"translator" : [
+				"郭华丰",
+				"陶有旺"
+			],
+			"country" : "China",
+			"category" : [
+				"00TP3",
+				"01工业技术",
+				"02自动化技术、计算机技术",
+				"03计算技术、计算机技术"
+			],
+			"price" : 79.80,
+			"tag" : [
+				"实体书"
+			]
+		},
+		{
+			"id" : 2,
+			"name" : "かんたん合格 基本情報技術者教科書 令和2年度",
+			"isbn" : "9784295007821",
+			"picture" : "2.png",
+			"language" : [
+				"Japanese"
+			],
+			"publisher" : [
+				"インプレス"
+			],
+			"publish_date" : "2020-6",
+			"author" : [
+				"五十嵐 順子",
+				"ラーニング編集部" 
+			],
+			"translator" : [],
+			"country" : "Japan",
+			"category" : [
+				"00C3055",
+				"01専門",
+				"02単行本",
+				"03電子通信"
+			],
+			"price" : 1280,
+			"tag" : [
+				"实体书"
+			]
+		}
+	]
+}

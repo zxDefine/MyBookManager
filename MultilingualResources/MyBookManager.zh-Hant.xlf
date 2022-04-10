@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="zh-Hant" original="MYBOOKMANAGER/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6920.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="MYBOOKMANAGER/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
+        <trans-unit id="Btn_Back_Tip.Text" translate="yes" xml:space="preserve">
+          <source>Back</source>
+          <target state="translated">後退</target>
+        </trans-unit>
+        <trans-unit id="Btn_ExportData_Tip.Text" translate="yes" xml:space="preserve">
+          <source>Export the template or the collection library</source>
+          <target state="translated">導出模板或收藏庫</target>
+        </trans-unit>
+        <trans-unit id="Btn_Help_Tip.Text" translate="yes" xml:space="preserve">
+          <source>Help</source>
+          <target state="translated">幫助</target>
+        </trans-unit>
+        <trans-unit id="Btn_ImportData_Tip.Text" translate="yes" xml:space="preserve">
+          <source>Import the template or the collection library</source>
+          <target state="translated">導入模板或收藏庫</target>
+        </trans-unit>
+        <trans-unit id="Btn_Language_Tip.Text" translate="yes" xml:space="preserve">
+          <source>Change the app language</source>
+          <target state="translated">更改應用語言</target>
+        </trans-unit>
+        <trans-unit id="ChangeLanguageDialogTitle" translate="yes" xml:space="preserve">
+          <source>Do you want to change the app's language?</source>
+          <target state="translated">您想更改應用程序的語言嗎？</target>
+        </trans-unit>
+        <trans-unit id="ChangeLanguageDialogTxt" translate="yes" xml:space="preserve">
+          <source>Changing the language will restart the app. Are you sure to restart?</source>
+          <target state="translated">更改語言將重新啟動應用程序。 確定重啟？</target>
+        </trans-unit>
+        <trans-unit id="ChangeLanguageDialog_No" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated">取消</target>
+        </trans-unit>
+        <trans-unit id="ChangeLanguageDialog_Yes" translate="yes" xml:space="preserve">
+          <source>Sure</source>
+          <target state="translated">是的</target>
+        </trans-unit>
+        <trans-unit id="BtnFind.Content" translate="yes" xml:space="preserve">
+          <source>Find</source>
+          <target state="translated">搜索</target>
+        </trans-unit>
+        <trans-unit id="BtnFind_Tip.Text" translate="yes" xml:space="preserve">
+          <source>Find all games and books.</source>
+          <target state="translated">查找所有遊戲和書籍。</target>
+        </trans-unit>
+        <trans-unit id="BtnNewGame.Content" translate="yes" xml:space="preserve">
+          <source>Add New Game</source>
+          <target state="translated">添加新遊戲</target>
+        </trans-unit>
+        <trans-unit id="BtnNewGame_Tip.Text" translate="yes" xml:space="preserve">
+          <source>Add a new game to the game collection.</source>
+          <target state="translated">將新遊戲添加到遊戲收藏中。</target>
+        </trans-unit>
+        <trans-unit id="BtnNewBook.Content" translate="yes" xml:space="preserve">
+          <source>Add New Book</source>
+          <target state="translated">添加新書</target>
+        </trans-unit>
+        <trans-unit id="BtnNewBook_Tip.Text" translate="yes" xml:space="preserve">
+          <source>Add a new book to the book collection.</source>
+          <target state="translated">將一本新書添加到圖書收藏中。</target>
+        </trans-unit>
+        <trans-unit id="BtnViewGame.Content" translate="yes" xml:space="preserve">
+          <source>View Game Collections</source>
+          <target state="translated">查看遊戲收藏</target>
+        </trans-unit>
+        <trans-unit id="BtnViewGame_Tip.Text" translate="yes" xml:space="preserve">
+          <source>View and edit a game info of the game collections.</source>
+          <target state="translated">查看和編輯遊戲收藏的遊戲信息。</target>
+        </trans-unit>
+        <trans-unit id="BtnViewBook.Content" translate="yes" xml:space="preserve">
+          <source>View Book Collections</source>
+          <target state="translated">查看圖書收藏</target>
+        </trans-unit>
+        <trans-unit id="BtnViewBook_Tip.Text" translate="yes" xml:space="preserve">
+          <source>View and edit a book info of the book collections.</source>
+          <target state="translated">查看和編輯圖書收藏的圖書信息。</target>
+        </trans-unit>
+        <trans-unit id="CommAddToText.Text" translate="yes" xml:space="preserve">
+          <source>Add to:</source>
+          <target state="translated">添加到：</target>
+        </trans-unit>
+        <trans-unit id="Btn_Add_Book_Collection_Tip.Text" translate="yes" xml:space="preserve">
+          <source>Create a new book collection.</source>
+          <target state="translated">創建一個新的圖書收藏。</target>
+        </trans-unit>
+        <trans-unit id="Dialog_Create_New_Collection.PrimaryButtonText" translate="yes" xml:space="preserve">
+          <source>OK</source>
+          <target state="translated">確定</target>
+        </trans-unit>
+        <trans-unit id="Dialog_Create_New_Collection.SecondaryButtonText" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated">取消</target>
+        </trans-unit>
+        <trans-unit id="Dialog_Create_New_Collection.Title" translate="yes" xml:space="preserve">
+          <source>Create a new collection</source>
+          <target state="translated">創建新收藏</target>
+        </trans-unit>
+        <trans-unit id="CreateNewCollectionLabelTxt_Book" translate="yes" xml:space="preserve">
+          <source>Please input the new book collection name:</source>
+          <target state="translated">請輸入新的圖書收藏名稱：</target>
+        </trans-unit>
+        <trans-unit id="CreateNewCollectionLabelTxt_Game" translate="yes" xml:space="preserve">
+          <source>Please input the new game collection name:</source>
+          <target state="translated">請輸入新的遊戲收藏名稱：</target>
+        </trans-unit>
+        <trans-unit id="Dialog_Create_New_Collection_Comment.Text" translate="yes" xml:space="preserve">
+          <source>Only numbers, characters, and underscores.</source>
+          <target state="translated">只能輸入數字、字符和下劃線。</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

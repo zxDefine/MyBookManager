@@ -1,0 +1,97 @@
+﻿<Page
+    x:Class="MyBookManager.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyBookManager"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DesignHeight="1000.484" d:DesignWidth="1499.658">
+
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Height="865" Width="1080">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="852*"/>
+        </Grid.RowDefinitions>
+        <CommandBar HorizontalAlignment="Left" DefaultLabelPosition="Right" Grid.RowSpan="2">
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton  x:Name="btn_Import" FontWeight="ExtraBold" FontSize="13">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Btn_ImportData_Tip"/>
+                </ToolTipService.ToolTip>
+                <RelativePanel>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xe8b5;"  VerticalAlignment="Center"/>
+                </RelativePanel>
+            </AppBarButton>
+            <AppBarButton x:Name="btn_Export" FontWeight="ExtraBold" FontSize="13">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Btn_ExportData_Tip"/>
+                </ToolTipService.ToolTip>
+                <RelativePanel>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xede1;"  VerticalAlignment="Center"/>
+                </RelativePanel>
+            </AppBarButton>
+            <AppBarButton x:Name="btn_Language" FontWeight="ExtraBold" FontSize="13" Click="btn_Language_Click">
+                <AppBarButton.Flyout>
+                    <Flyout x:Name="flyout_Language">
+                        <ListView x:Name="list_Language" Width="65" IsEnabled="True" ItemClick="list_Language_ItemClick" SelectionChanged="list_Language_SelectionChanged" IsItemClickEnabled="True">
+                            <RelativePanel x:Name="mfItem_btn_cn">
+                                <TextBlock x:Name="icon_cn" FontFamily="Segoe MDL2 Assets" Text="&#xe88d;"  VerticalAlignment="Center" Margin="0, 8, 0, 0"/>
+                                <RadioButton x:Name="radBtn_lang_cn" IsChecked="False" RelativePanel.RightOf="icon_cn" VerticalAlignment="Center" IsEnabled="False" Margin="10, 0, 0, 0"/>
+                            </RelativePanel>
+                            <RelativePanel x:Name="mfItem_btn_tw">
+                                <TextBlock x:Name="icon_tw" FontFamily="Segoe MDL2 Assets" Text="&#xe88c;"  VerticalAlignment="Center" Margin="0, 8, 0, 0"/>
+                                <RadioButton x:Name="radBtn_lang_tw" IsChecked="False" RelativePanel.RightOf="icon_tw" VerticalAlignment="Center" IsEnabled="False" Margin="10, 0, 0, 0"/>
+                            </RelativePanel>
+                            <RelativePanel x:Name="mfItem_btn_ja">
+                                <TextBlock x:Name="icon_ja" FontFamily="Segoe MDL2 Assets" Text="&#xec45;"  VerticalAlignment="Center" Margin="0, 8, 0, 0"/>
+                                <RadioButton x:Name="radBtn_lang_ja" IsChecked="False" RelativePanel.RightOf="icon_ja" VerticalAlignment="Center" IsEnabled="False" Margin="10, 0, 0, 0"/>
+                            </RelativePanel>
+                            <RelativePanel x:Name="mfItem_btn_ko">
+                                <TextBlock x:Name="icon_ko" FontFamily="Segoe MDL2 Assets" Text="&#xe88b;"  VerticalAlignment="Center" Margin="0, 8, 0, 0"/>
+                                <RadioButton x:Name="radBtn_lang_ko" IsChecked="False" RelativePanel.RightOf="icon_ko" VerticalAlignment="Center" IsEnabled="False" Margin="10, 0, 0, 0"/>
+                            </RelativePanel>
+                            <RelativePanel x:Name="mfItem_btn_en">
+                                <TextBlock x:Name="icon_en" Text="EN" FontSize="12" FontWeight="Bold"  VerticalAlignment="Center" Margin="0, 8, 0, 0"/>
+                                <RadioButton x:Name="radBtn_lang_en" IsChecked="False" RelativePanel.RightOf="icon_en" VerticalAlignment="Center" IsEnabled="False" Margin="8, 0, 0, 0"/>
+                            </RelativePanel>
+                        </ListView>
+                    </Flyout>
+                </AppBarButton.Flyout>
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Btn_Language_Tip"/>
+                </ToolTipService.ToolTip>
+                <RelativePanel>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xf2b7;"  VerticalAlignment="Center"/>
+                </RelativePanel>
+            </AppBarButton>
+            <AppBarButton x:Name="btn_Help" FontWeight="ExtraBold" FontSize="13">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Btn_Help_Tip"/>
+                </ToolTipService.ToolTip>
+                <RelativePanel>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xe897;"  VerticalAlignment="Center"/>
+                </RelativePanel>
+            </AppBarButton>
+        </CommandBar>
+        <RelativePanel VerticalAlignment="Top" Margin="0,27,0,0" Grid.Row="1">
+            <Button x:Name="btn_new_book" x:Uid="BtnNewBook" Margin="100,50,50,25" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" Width="390" Height="340" FontSize="25" FontWeight="ExtraBold" Click="btn_new_book_Click">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="BtnNewBook_Tip"/>
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button x:Name="btn_book_view" x:Uid="BtnViewBook" Margin="50,50,100,25" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="390" Height="340" RelativePanel.RightOf="btn_new_book" FontSize="25" FontWeight="ExtraBold" Click="btn_book_view_Click">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="BtnViewBook_Tip"/>
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button x:Name="btn_find" x:Uid="BtnFind" Margin="100,25,100,50" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="880" Height="330" RelativePanel.Below="btn_new_book" FontSize="25" FontWeight="ExtraBold">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="BtnFind_Tip"/>
+                </ToolTipService.ToolTip>
+            </Button>
+        </RelativePanel>
+    </Grid>
+</Page>

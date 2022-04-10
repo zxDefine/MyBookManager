@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Btn_Back_Tip.Text" xml:space="preserve">
+    <value>前に戻ります</value>
+  </data>
+  <data name="Btn_ExportData_Tip.Text" xml:space="preserve">
+    <value>テンプレートまたはコレクションライブラリをエクスポートします</value>
+  </data>
+  <data name="Btn_Help_Tip.Text" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="Btn_ImportData_Tip.Text" xml:space="preserve">
+    <value>テンプレートまたはコレクションライブラリをインポートします</value>
+  </data>
+  <data name="Btn_Language_Tip.Text" xml:space="preserve">
+    <value>アプリの表示言語変更</value>
+  </data>
+  <data name="ChangeLanguageDialogTitle" xml:space="preserve">
+    <value>アプリの言語を変更しますか？</value>
+  </data>
+  <data name="ChangeLanguageDialogTxt" xml:space="preserve">
+    <value>言語を変更すると、アプリが再起動します。 再起動してもよろしいですか？</value>
+  </data>
+  <data name="ChangeLanguageDialog_No" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="ChangeLanguageDialog_Yes" xml:space="preserve">
+    <value>はい</value>
+  </data>
+  <data name="BtnFind.Content" xml:space="preserve">
+    <value>検索</value>
+  </data>
+  <data name="BtnFind_Tip.Text" xml:space="preserve">
+    <value>すべてのゲームと本の情報を検索します。</value>
+  </data>
+  <data name="BtnNewGame.Content" xml:space="preserve">
+    <value>新しいゲームの追加</value>
+  </data>
+  <data name="BtnNewGame_Tip.Text" xml:space="preserve">
+    <value>ゲームコレクションに新しいゲームを追加します。</value>
+  </data>
+  <data name="BtnNewBook.Content" xml:space="preserve">
+    <value>新しい本の追加</value>
+  </data>
+  <data name="BtnNewBook_Tip.Text" xml:space="preserve">
+    <value>本コレクションに新しい本を追加します。</value>
+  </data>
+  <data name="BtnViewGame.Content" xml:space="preserve">
+    <value>ゲームコレクションを見ます</value>
+  </data>
+  <data name="BtnViewGame_Tip.Text" xml:space="preserve">
+    <value>ゲームコレクションのゲーム情報を表示および編集します。</value>
+  </data>
+  <data name="BtnViewBook.Content" xml:space="preserve">
+    <value>本コレクションを見ます</value>
+  </data>
+  <data name="BtnViewBook_Tip.Text" xml:space="preserve">
+    <value>本コレクションのゲーム情報を表示および編集します。</value>
+  </data>
+  <data name="CommAddToText.Text" xml:space="preserve">
+    <value>追加場所:</value>
+  </data>
+  <data name="Btn_Add_Book_Collection_Tip.Text" xml:space="preserve">
+    <value>新しい本コレクションを作成します。</value>
+  </data>
+  <data name="Dialog_Create_New_Collection.PrimaryButtonText" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="Dialog_Create_New_Collection.SecondaryButtonText" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Dialog_Create_New_Collection.Title" xml:space="preserve">
+    <value>コレクションの新規</value>
+  </data>
+  <data name="CreateNewCollectionLabelTxt_Book" xml:space="preserve">
+    <value>新規したい本コレクションの名前を入力してください:</value>
+  </data>
+  <data name="CreateNewCollectionLabelTxt_Game" xml:space="preserve">
+    <value>新規したいゲームコレクションの名前を入力してください:</value>
+  </data>
+  <data name="Dialog_Create_New_Collection_Comment.Text" xml:space="preserve">
+    <value>数字、アルファベット、および下線のみ。</value>
+  </data>
+</root>

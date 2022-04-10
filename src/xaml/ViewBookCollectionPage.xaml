@@ -1,0 +1,181 @@
+﻿<Page
+    x:Class="MyBookManager.ViewBookCollectionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyBookManager"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Height="865" Width="1080" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <CommandBar HorizontalAlignment="Left" DefaultLabelPosition="Right">
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton x:Name="btn_Back" FontWeight="ExtraBold" FontSize="13" Click="btn_Back_Click">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Btn_Back_Tip"/>
+                </ToolTipService.ToolTip>
+                <RelativePanel>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xf0d3;"  VerticalAlignment="Center"/>
+                </RelativePanel>
+            </AppBarButton>
+        </CommandBar>
+        <Grid VerticalAlignment="Top" Margin="0,40,0,0" Width="1080" HorizontalAlignment="Left">
+            <Border Margin="20,20,20,20" Width="1040" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Gray">
+                <RelativePanel Padding="30,20,30,20">
+                    <TextBlock x:Name="current_book_collection" x:Uid="ViewBook_CurrentBookCollection" FontSize="22" FontWeight="Bold"/>
+                    <ComboBox x:Name="combobox_book_collections" RelativePanel.RightOf="current_book_collection" Margin="10,0,0,0" Width="250" SelectionChanged="combobox_book_collections_SelectionChanged"/>
+                    <local:AlternatingRowListView 
+                        x:Name="listview_book_list" RelativePanel.Below="current_book_collection" 
+                        Margin="0,10,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                        Width="350" Height="660" Background="#FFDEDEDE"
+                        EvenColor="LightCoral"  OddColor="LightGray" SelectionChanged="listview_book_list_SelectionChanged">
+                    </local:AlternatingRowListView>
+                    <TextBlock x:Name="itemTotalLabel" x:Uid="ViewBook_TotalItem" FontSize="18" FontWeight="Bold"  RelativePanel.Below="listview_book_list" Margin="0,10,0,0"/>
+                    <TextBlock x:Name="itemTotalNums" FontSize="18" FontWeight="Bold" RelativePanel.Below="listview_book_list" RelativePanel.RightOf="itemTotalLabel" Margin="0,10,0,0"/>
+
+                    <ScrollViewer Width="630" Height="700" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" RelativePanel.RightOf="listview_book_list" RelativePanel.Below="combobox_book_collections">
+                        <RelativePanel>
+                            <TextBlock x:Name="labelISBN" x:Uid="CreateBook_ISBN" Width="285" FontSize="18" FontWeight="Bold" Margin="20,10,0,0"/>
+                            <Border x:Name="editISBNBorder" RelativePanel.Below="labelISBN" Margin="20,5,0,0" Width="248" Height="32" BorderThickness="1" BorderBrush="Gray" Background="LightGray">
+                                <TextBlock  x:Name="editISBN" Width="285" TextWrapping="Wrap" Height="32"/>
+                            </Border>
+                            <Button x:Name="editISBNBtn" RelativePanel.Below="labelISBN" RelativePanel.RightOf="editISBNBorder" Margin="5,5,0,0" Width="32" Height="32" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" FontSize="12" Click="editISBNBtn_Click">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock x:Uid="ViewBook_Btn_Edit"/>
+                                </ToolTipService.ToolTip>
+                            </Button>
+
+                            <TextBlock x:Name="labelTitle" x:Uid="CreateBook_Title" Width="285" FontSize="18" FontWeight="Bold" Margin="20,10,0,0" RelativePanel.Below="editISBNBorder"/>
+                            <Border x:Name="editTitleBorder" RelativePanel.Below="labelTitle" Margin="20,5,0,0" Width="248" Height="32" BorderThickness="1" BorderBrush="Gray" Background="LightGray">
+                                <TextBlock x:Name="editTitle" Width="248" TextWrapping="Wrap" Height="32"/>
+                            </Border>
+                            <Button x:Name="editTitleBtn" RelativePanel.Below="labelTitle" RelativePanel.RightOf="editTitleBorder" Margin="5,5,0,0" Width="32" Height="32" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" FontSize="12" Click="editTitleBtn_Click">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock x:Uid="ViewBook_Btn_Edit"/>
+                                </ToolTipService.ToolTip>
+                            </Button>
+
+                            <TextBlock x:Name="labelSubtitle" x:Uid="CreateBook_Subtitle" Width="285" FontSize="18" FontWeight="Bold" Margin="20,10,0,0" RelativePanel.Below="editTitleBorder"/>
+                            <Border x:Name="editSubtitleBorder" RelativePanel.Below="labelSubtitle" Margin="20,5,0,0" Width="248" Height="32" BorderThickness="1" BorderBrush="Gray" Background="LightGray">
+                                <TextBlock x:Name="editSubtitle" Width="248" TextWrapping="Wrap" Height="32"/>
+                            </Border>
+                            <Button x:Name="editSubtitleBtn" RelativePanel.Below="labelSubtitle" RelativePanel.RightOf="editSubtitleBorder" Margin="5,5,0,0" Width="32" Height="32" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" FontSize="12" Click="editSubtitleBtn_Click">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock x:Uid="ViewBook_Btn_Edit"/>
+                                </ToolTipService.ToolTip>
+                            </Button>
+
+                            <TextBlock x:Name="labelAuthor" x:Uid="CreateBook_Author" Width="285" FontSize="18" FontWeight="Bold" Margin="20,10,0,0" RelativePanel.Below="editSubtitleBorder"/>
+                            <Border x:Name="editAuthorBorder" RelativePanel.Below="labelAuthor" Margin="20,5,0,0" Width="248" BorderThickness="1" BorderBrush="Gray" Background="LightGray">
+                                <TextBlock x:Name="editAuthor" Width="248" TextWrapping="Wrap" MinHeight="64" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                            </Border>
+                            <Button x:Name="editAuthorBtn" RelativePanel.Below="labelAuthor" RelativePanel.RightOf="editAuthorBorder" Margin="5,5,0,0" Width="32" Height="64" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" FontSize="12">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock x:Uid="ViewBook_Btn_Edit"/>
+                                </ToolTipService.ToolTip>
+                            </Button>
+
+                            <Border x:Name="imageBorder" RelativePanel.RightOf="labelISBN" Margin="20, 11, 0, 0" Width="285" Height="306" BorderThickness="1" BorderBrush="Gray">
+                                <Image x:Name="coverImage" Source="/Assets/defultNoImage.png" Tapped="coverImage_Tapped"/>
+                            </Border>
+
+                            <TextBlock x:Name="labelTranslator" x:Uid="CreateBook_Translator" Width="285" FontSize="18" FontWeight="Bold" Margin="20,10,0,0" RelativePanel.Below="editAuthorBorder"/>
+                            <Border x:Name="editTranslatorBorder" RelativePanel.Below="labelTranslator" Margin="20,5,0,0" Width="248" BorderThickness="1" BorderBrush="Gray" Background="LightGray">
+                                <TextBlock x:Name="editTranslator" Width="248" TextWrapping="Wrap" MinHeight="64" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                            </Border>
+                            <Button x:Name="editTranslatorBtn" RelativePanel.Below="labelTranslator" RelativePanel.RightOf="editTranslatorBorder" Margin="5,5,0,0" Width="32" Height="64" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" FontSize="12">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock x:Uid="ViewBook_Btn_Edit"/>
+                                </ToolTipService.ToolTip>
+                            </Button>
+
+                            <TextBlock x:Name="labelDescription" x:Uid="CreateBook_Description" Width="285" FontSize="18" FontWeight="Bold" Margin="20,10,0,0" RelativePanel.Below="editAuthorBorder" RelativePanel.RightOf="labelTranslator"/>
+                            <Border x:Name="editDescriptionBorder" RelativePanel.Below="labelDescription" RelativePanel.RightOf="labelTranslator" Margin="20,5,0,0" Width="248" BorderThickness="1" BorderBrush="Gray" Background="LightGray">
+                                <TextBlock x:Name="editDescription" Width="248" TextWrapping="Wrap" MinHeight="64" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                            </Border>
+                            <Button x:Name="editDescriptionBtn" RelativePanel.Below="labelDescription" RelativePanel.RightOf="editDescriptionBorder" Margin="5,5,0,0" Width="32" Height="64" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" FontSize="12">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock x:Uid="ViewBook_Btn_Edit"/>
+                                </ToolTipService.ToolTip>
+                            </Button>
+
+                            <TextBlock x:Name="labelPublisher" x:Uid="CreateBook_Publisher" Width="285" FontSize="18" FontWeight="Bold" Margin="20,10,0,0" RelativePanel.Below="editTranslatorBorder"/>
+                            <Border x:Name="editPublisherBorder" RelativePanel.Below="labelPublisher" Margin="20,5,0,0" Width="248" Height="32" BorderThickness="1" BorderBrush="Gray" Background="LightGray">
+                                <TextBlock x:Name="editPublisher" Width="248" TextWrapping="Wrap" Height="32" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                            </Border>
+                            <Button x:Name="editPublisherBtn" RelativePanel.Below="labelPublisher" RelativePanel.RightOf="editPublisherBorder" Margin="5,5,0,0" Width="32" Height="32" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" FontSize="12" Click="editPublisherBtn_Click">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock x:Uid="ViewBook_Btn_Edit"/>
+                                </ToolTipService.ToolTip>
+                            </Button>
+
+                            <TextBlock x:Name="labelPublishDate" x:Uid="CreateBook_PublishDate" Width="285" FontSize="18" FontWeight="Bold" Margin="20,10,0,0" RelativePanel.Below="editDescriptionBorder" RelativePanel.RightOf="labelPublisher"/>
+                            <Border x:Name="editPublishDateBorder" RelativePanel.Below="labelPublishDate" RelativePanel.RightOf="labelPublisher" Margin="20,5,0,0" Width="248" Height="32" BorderThickness="1" BorderBrush="Gray" Background="LightGray">
+                                <TextBlock x:Name="editPublishDate" Width="248" TextWrapping="Wrap" Height="32" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                            </Border>
+                            <Button x:Name="editPublishDateBtn" RelativePanel.Below="labelPublishDate" RelativePanel.RightOf="editPublishDateBorder" Margin="5,5,0,0" Width="32" Height="32" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" FontSize="12">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock x:Uid="ViewBook_Btn_Edit"/>
+                                </ToolTipService.ToolTip>
+                            </Button>
+                            
+
+                            <TextBlock x:Name="labelLanguage" x:Uid="CreateBook_Language" Width="285" FontSize="18" FontWeight="Bold" Margin="20,10,0,0" RelativePanel.Below="editPublisherBorder"/>
+                            <Border x:Name="editLanguageBorder" RelativePanel.Below="labelLanguage" Margin="20,5,0,0" Width="248" Height="32" BorderThickness="1" BorderBrush="Gray" Background="LightGray">
+                                <TextBlock x:Name="editLanguage" Width="248" TextWrapping="Wrap" Height="32" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                            </Border>
+                            <Button x:Name="editLanguageBtn" RelativePanel.Below="labelLanguage" RelativePanel.RightOf="editLanguageBorder" Margin="5,5,0,0" Width="32" Height="32" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" FontSize="12">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock x:Uid="ViewBook_Btn_Edit"/>
+                                </ToolTipService.ToolTip>
+                            </Button>
+
+                            <TextBlock x:Name="labelCountry" x:Uid="CreateBook_Country" Width="285" FontSize="18" FontWeight="Bold" Margin="20,10,0,0" RelativePanel.Below="editPublishDateBorder" RelativePanel.RightOf="labelLanguage"/>
+                            <Border x:Name="editCountryBorder" RelativePanel.Below="labelCountry" RelativePanel.RightOf="labelLanguage" Margin="20,5,0,0" Width="248" Height="32" BorderThickness="1" BorderBrush="Gray" Background="LightGray">
+                                <TextBlock x:Name="editCountry" Width="248" TextWrapping="Wrap" Height="32" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                            </Border>
+                            <Button x:Name="editCountryBtn" RelativePanel.Below="labelCountry" RelativePanel.RightOf="editCountryBorder" Margin="5,5,0,0" Width="32" Height="32" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" FontSize="12">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock x:Uid="ViewBook_Btn_Edit"/>
+                                </ToolTipService.ToolTip>
+                            </Button>
+
+                            <TextBlock x:Name="labelPrice" x:Uid="CreateBook_Price" Width="285" FontSize="18" FontWeight="Bold" Margin="20,10,0,0" RelativePanel.Below="editLanguageBorder"/>
+                            <Border x:Name="editPriceBorder" RelativePanel.Below="labelPrice" Margin="20,5,0,0" Width="248" Height="32" BorderThickness="1" BorderBrush="Gray" Background="LightGray">
+                                <TextBlock x:Name="editPrice" Width="248" TextWrapping="Wrap" Height="32" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                            </Border>
+                            <Button x:Name="editPriceBtn" RelativePanel.Below="labelPrice" RelativePanel.RightOf="editPriceBorder" Margin="5,5,0,0" Width="32" Height="32" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" FontSize="12" Click="editPriceBtn_Click">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock x:Uid="ViewBook_Btn_Edit"/>
+                                </ToolTipService.ToolTip>
+                            </Button>
+
+                            <TextBlock x:Name="labelCategorys" x:Uid="CreateBook_Categorys" Width="285" FontSize="18" FontWeight="Bold" Margin="20,10,0,0" RelativePanel.Below="editPriceBorder"/>
+                            <Border x:Name="editCategorysBorder" RelativePanel.Below="labelCategorys"  Margin="20,5,0,0" Width="248" BorderThickness="1" BorderBrush="Gray" Background="LightGray">
+                                <TextBlock x:Name="editCategorys" Width="248" TextWrapping="Wrap" MinHeight="64" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                            </Border>
+                            <Button x:Name="editCategorysBtn" RelativePanel.Below="labelCategorys" RelativePanel.RightOf="editCategorysBorder" Margin="5,5,0,0" Width="32" Height="64" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" FontSize="12">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock x:Uid="ViewBook_Btn_Edit"/>
+                                </ToolTipService.ToolTip>
+                            </Button>
+
+                            <TextBlock x:Name="labelTags" x:Uid="CreateBook_Tags" Width="285" FontSize="18" FontWeight="Bold" Margin="20,10,0,0" RelativePanel.Below="editCountryBorder" RelativePanel.RightOf="labelPrice"/>
+                            <Border x:Name="editTagsBorder" RelativePanel.Below="labelTags" RelativePanel.RightOf="labelPrice" Margin="20,5,0,0" Width="248" BorderThickness="1" BorderBrush="Gray" Background="LightGray">
+                                <TextBlock x:Name="editTags" Width="248" TextWrapping="Wrap" MinHeight="64"/>
+                            </Border>
+                            <Button x:Name="editTagsBtn" RelativePanel.Below="labelTags" RelativePanel.RightOf="editTagsBorder" Margin="5,5,0,0" Width="32" Height="64" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" FontSize="12">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock x:Uid="ViewBook_Btn_Edit"/>
+                                </ToolTipService.ToolTip>
+                            </Button>
+                        </RelativePanel>
+                    </ScrollViewer>
+                </RelativePanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

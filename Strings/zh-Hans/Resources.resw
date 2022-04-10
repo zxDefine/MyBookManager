@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Btn_Back_Tip.Text" xml:space="preserve">
+    <value>后退</value>
+  </data>
+  <data name="Btn_ExportData_Tip.Text" xml:space="preserve">
+    <value>导出模板或收藏库</value>
+  </data>
+  <data name="Btn_Help_Tip.Text" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Btn_ImportData_Tip.Text" xml:space="preserve">
+    <value>导入模板或收藏库</value>
+  </data>
+  <data name="Btn_Language_Tip.Text" xml:space="preserve">
+    <value>修改应用的显示语言</value>
+  </data>
+  <data name="ChangeLanguageDialogTitle" xml:space="preserve">
+    <value>您想更改应用程序的语言吗？</value>
+  </data>
+  <data name="ChangeLanguageDialogTxt" xml:space="preserve">
+    <value>更改语言将重新启动应用程序。 确定重启？</value>
+  </data>
+  <data name="ChangeLanguageDialog_No" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="ChangeLanguageDialog_Yes" xml:space="preserve">
+    <value>是的</value>
+  </data>
+  <data name="BtnFind.Content" xml:space="preserve">
+    <value>查找</value>
+  </data>
+  <data name="BtnFind_Tip.Text" xml:space="preserve">
+    <value>查找所有游戏和书籍。</value>
+  </data>
+  <data name="BtnNewGame.Content" xml:space="preserve">
+    <value>添加新游戏</value>
+  </data>
+  <data name="BtnNewGame_Tip.Text" xml:space="preserve">
+    <value>将新游戏添加到游戏收藏中。</value>
+  </data>
+  <data name="BtnNewBook.Content" xml:space="preserve">
+    <value>添加新书</value>
+  </data>
+  <data name="BtnNewBook_Tip.Text" xml:space="preserve">
+    <value>将一本新书添加到图书收藏中。</value>
+  </data>
+  <data name="BtnViewGame.Content" xml:space="preserve">
+    <value>查看游戏收藏</value>
+  </data>
+  <data name="BtnViewGame_Tip.Text" xml:space="preserve">
+    <value>查看和编辑游戏收藏的游戏信息。</value>
+  </data>
+  <data name="BtnViewBook.Content" xml:space="preserve">
+    <value>查看图书收藏</value>
+  </data>
+  <data name="BtnViewBook_Tip.Text" xml:space="preserve">
+    <value>查看和编辑图书收藏的图书信息。</value>
+  </data>
+  <data name="CommAddToText.Text" xml:space="preserve">
+    <value>添加到:</value>
+  </data>
+  <data name="Btn_Add_Book_Collection_Tip.Text" xml:space="preserve">
+    <value>创建一个新的图书收藏。</value>
+  </data>
+  <data name="Dialog_Create_New_Collection.PrimaryButtonText" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="Dialog_Create_New_Collection.SecondaryButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Dialog_Create_New_Collection.Title" xml:space="preserve">
+    <value>创建新收藏</value>
+  </data>
+  <data name="CreateNewCollectionLabelTxt_Book" xml:space="preserve">
+    <value>请输入新的图书收藏名称:</value>
+  </data>
+  <data name="CreateNewCollectionLabelTxt_Game" xml:space="preserve">
+    <value>请输入新的游戏收藏名称:</value>
+  </data>
+  <data name="Dialog_Create_New_Collection_Comment.Text" xml:space="preserve">
+    <value>只能输入数字、字符和下划线。</value>
+  </data>
+</root>
