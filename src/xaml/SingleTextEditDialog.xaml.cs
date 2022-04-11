@@ -83,7 +83,7 @@ namespace MyBookManager
                     case AppGloableData.CollectionParameter.BOOK_SUBTITLE:break;
                     case AppGloableData.CollectionParameter.BOOK_PUBLISHERS:break;
                     case AppGloableData.CollectionParameter.BOOK_PRICE:
-                        if (!Regex.IsMatch(textBox.Text, "[0-9]+$")) isNotValid = true;
+                        if (!Regex.IsMatch(textBox.Text, "^[0-9.]+$")) isNotValid = true;
                         break;
                     default:break;
                 }

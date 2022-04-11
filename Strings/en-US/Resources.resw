@@ -447,6 +447,12 @@
   <data name="ViewBook_Edit_Title_Translator" xml:space="preserve">
     <value>Please edit the translator of the book.</value>
   </data>
+  <data name="ViewBook_No_Book_Update_Content" xml:space="preserve">
+    <value>It cannot be saved because no book information has been updated.</value>
+  </data>
+  <data name="ViewBook_No_Book_Update_Title" xml:space="preserve">
+    <value>No book info has been updated!!</value>
+  </data>
   <data name="ViewBook_TotalItem.Text" xml:space="preserve">
     <value>Total Books: </value>
   </data>

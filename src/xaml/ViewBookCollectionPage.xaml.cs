@@ -9,6 +9,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
+using Windows.Storage.Streams;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -435,9 +437,69 @@ namespace MyBookManager
             }
         }
 
-        private void save_book_info_Click(object sender, RoutedEventArgs e)
+        private async void save_book_info_Click(object sender, RoutedEventArgs e)
         {
+            if (isEditMode)
+            {
+                string titleText = editTitle.Text;
+                string priceStr = editPrice.Text;
+                float price = 0.0F;
+                if ("" == titleText) 
+                {
+                    ContentDialog saveDialog = new ContentDialog
+                    {
+                        Title = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Save_Dialog_Title_Error"),
+                        Content = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Save_Dialog_Content_Error"),
+                        PrimaryButtonText = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Save_Dialog_Error_Btn")
+                    };
 
+                    //修改按钮样式
+                    var bst = new Windows.UI.Xaml.Style(typeof(Button));
+                    bst.Setters.Add(new Setter(Button.BackgroundProperty, Windows.UI.Colors.Red));
+                    saveDialog.PrimaryButtonStyle = bst;
+
+                    await saveDialog.ShowAsync();
+                }
+                else if (priceStr != "" && !float.TryParse(editPrice.Text, out price))
+                {
+                    ContentDialog saveDialog = new ContentDialog
+                    {
+                        Title = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Save_Dialog_Price_Error"),
+                        Content = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Save_Dialog_Content_Price_Error"),
+                        PrimaryButtonText = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("CreateBook_Save_Dialog_Error_Btn")
+                    };
+
+                    //修改按钮样式
+                    var bst = new Windows.UI.Xaml.Style(typeof(Button));
+                    bst.Setters.Add(new Setter(Button.BackgroundProperty, Windows.UI.Colors.Red));
+                    saveDialog.PrimaryButtonStyle = bst;
+
+                    await saveDialog.ShowAsync();
+                }
+                else
+                {
+                    await SaveWithNoDialog(price);
+                }
+                    
+            }
+            else 
+            {
+                //没有任何修改不处理
+                ContentDialog dialog = new ContentDialog
+                {
+                    Title = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ViewBook_No_Book_Update_Title"),
+                    Content = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ViewBook_No_Book_Update_Content"),
+                    PrimaryButtonText = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ISBNSearchRes_Btn")
+                };
+
+                //修改按钮样式
+                var bst = new Windows.UI.Xaml.Style(typeof(Button));
+                bst.Setters.Add(new Setter(Button.BackgroundProperty, Windows.UI.Colors.Red));
+                bst.Setters.Add(new Setter(Button.ForegroundProperty, Windows.UI.Colors.White));
+                dialog.PrimaryButtonStyle = bst;
+
+                await dialog.ShowAsync();
+            }
         }
 
         private void setSaveBtnRed(bool flg)
@@ -453,5 +515,120 @@ namespace MyBookManager
                 save_book_info.Foreground = saveBtnFontColor;
             }
         }
+
+        private void saveToCollection(float price) 
+        { 
+            foreach(var bookInfo in bookCollection.BookList) 
+            {
+                if(bookInfo.Id == currSelectBookId) 
+                {
+                    bookInfo.Title = editTitle.Text;
+                    bookInfo.Subtitle = editSubtitle.Text;
+                    bookInfo.Description = editDescription.Text;
+                    bookInfo.ISBN = editISBN.Text;
+                    bookInfo.CoverImageBase64 = currentImageBase64Str;
+                    bookInfo.Language = editLanguage.Text;
+                    bookInfo.Publisher = editPublisher.Text;
+                    bookInfo.PublishDate = editPublishDate.Text;
+                    bookInfo.Author = editAuthor.Text;
+                    bookInfo.Translator = editTranslator.Text;
+                    bookInfo.Country = editCountry.Text;
+                    bookInfo.Categorys = editCategorys.Text;
+                    bookInfo.Price = price;
+
+                    var tags = editTags.Text.Split(' ');
+                    bookInfo.Tags.Clear();
+                    foreach (var tag in tags)
+                    {
+                        bookInfo.Tags.Add(tag);
+                    }
+                    break;
+                }
+            }
+        }
+
+        private void resetEditStatus() 
+        {
+            isEditMode = false;
+
+            setTheEditStatus(false, AppGloableData.CollectionParameter.BOOK_ISBN);
+            setTheEditStatus(false, AppGloableData.CollectionParameter.BOOK_TITLE);
+            setTheEditStatus(false, AppGloableData.CollectionParameter.BOOK_SUBTITLE);
+            setTheEditStatus(false, AppGloableData.CollectionParameter.BOOK_IMAGE);
+            setTheEditStatus(false, AppGloableData.CollectionParameter.BOOK_AUTHOR);
+            setTheEditStatus(false, AppGloableData.CollectionParameter.BOOK_TRANSLATOR);
+            setTheEditStatus(false, AppGloableData.CollectionParameter.BOOK_DESCRIPTION);
+            setTheEditStatus(false, AppGloableData.CollectionParameter.BOOK_PUBLISHERS);
+            setTheEditStatus(false, AppGloableData.CollectionParameter.BOOK_PUBLISHDATE);
+            setTheEditStatus(false, AppGloableData.CollectionParameter.BOOK_LANGUAGES);
+            setTheEditStatus(false, AppGloableData.CollectionParameter.BOOK_COUNTRY);
+            setTheEditStatus(false, AppGloableData.CollectionParameter.BOOK_PRICE);
+            setTheEditStatus(false, AppGloableData.CollectionParameter.BOOK_TAGS);
+            setTheEditStatus(false, AppGloableData.CollectionParameter.BOOK_CATEGORYS);
+        }
+
+        private async Task<bool> SaveWithNoDialog(float price) 
+        {
+            saveToCollection(price);
+
+            string json = JsonConvert.SerializeObject(bookCollection);
+            var booksFolder = await ApplicationData.Current.RoamingFolder.GetFolderAsync(AppGloableData.appBooksFolderName);
+            var filr = await booksFolder.GetFileAsync(books.getBookFullName(combobox_book_collections.SelectedIndex));
+            await FileIO.WriteTextAsync(filr, json, UnicodeEncoding.Utf8);
+
+            //change save btn color
+            setSaveBtnRed(false);
+
+            resetEditStatus();
+
+            //init curr select item index
+            int tmpId = currSelectBookId;
+            currSelectBookId = -1;
+            refreshListView(true);
+            currSelectBookId = tmpId;
+
+            return true;
+        }
+
+        /*
+        private async Task<bool> Save(string dialogTitle, string dialogContent, string btnYes, string btnNO, float price)
+        {
+
+            ContentDialog saveDialog = new ContentDialog
+            {
+                Title = dialogTitle,
+                Content = dialogContent,
+                PrimaryButtonText = btnYes,
+                CloseButtonText = btnNO
+            };
+
+            //修改按钮样式
+            var bst = new Windows.UI.Xaml.Style(typeof(Button));
+            bst.Setters.Add(new Setter(Button.BackgroundProperty, Windows.UI.Colors.DodgerBlue));
+            bst.Setters.Add(new Setter(Button.ForegroundProperty, Windows.UI.Colors.White));
+            saveDialog.PrimaryButtonStyle = bst;
+
+            ContentDialogResult result = await saveDialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                saveToCollection(price);
+
+                string json = JsonConvert.SerializeObject(bookCollection);
+                var booksFolder = await ApplicationData.Current.RoamingFolder.GetFolderAsync(AppGloableData.appBooksFolderName);
+                var filr = await booksFolder.GetFileAsync(books.getBookFullName(combobox_book_collections.SelectedIndex));
+                await FileIO.WriteTextAsync(filr, json, UnicodeEncoding.Utf8);
+
+                //change save btn color
+                setSaveBtnRed(false);
+                //init curr select item index
+                currSelectBookId = -1;
+
+                refreshListView(false);
+
+                return true;
+            }
+            return false;
+        }
+        */
     }
 }
