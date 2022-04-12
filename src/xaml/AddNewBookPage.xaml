@@ -49,7 +49,7 @@
                         x:Name="listview_book_list" RelativePanel.Below="txt_add_to" 
                         Margin="0,10,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
                         Width="350" Height="700" Background="#FFDEDEDE"
-                        EvenColor="LightCoral"  OddColor="LightGray">
+                        EvenColor="#FFACFBF9"  OddColor="LightGray">
                     </local:AlternatingRowListView>
                     
                     <ScrollViewer Width="630" Height="700" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" RelativePanel.RightOf="listview_book_list" RelativePanel.Below="combobox_book_collections">

@@ -699,6 +699,9 @@ namespace MyBookManager
 
             booksCollectionListPreCount = bookCollection.BookList.Count;
 
+            //new book list clear
+            addNewBookIdList.Clear();
+
             refreshListView();
 
             //change save btn color

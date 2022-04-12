@@ -143,6 +143,9 @@
     <Compile Include="src\xaml\DropdownBoxEditDialog.xaml.cs">
       <DependentUpon>DropdownBoxEditDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\xaml\FindBookInfoPage.xaml.cs">
+      <DependentUpon>FindBookInfoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\xaml\LoadingDialog.xaml.cs">
       <DependentUpon>LoadingDialog.xaml</DependentUpon>
     </Compile>
@@ -197,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="src\xaml\DropdownBoxEditDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\xaml\FindBookInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

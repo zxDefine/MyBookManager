@@ -26,7 +26,7 @@
             <Border Margin="20,20,20,20" Width="1040" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Gray">
                 <RelativePanel Padding="30,20,30,20">
                     <TextBlock x:Name="current_book_collection" x:Uid="ViewBook_CurrentBookCollection" FontSize="22" FontWeight="Bold"/>
-                    <ComboBox x:Name="combobox_book_collections" RelativePanel.RightOf="current_book_collection" Margin="10,0,0,0" Width="250" SelectionChanged="combobox_book_collections_SelectionChanged"/>
+                    <ComboBox x:Name="combobox_book_collections" RelativePanel.RightOf="current_book_collection" Margin="10,0,0,0" Width="250" SelectionChanged="combobox_book_collections_SelectionChanged" Tapped="combobox_book_collections_Tapped"/>
                     <Button x:Name="save_book_info" Margin="50,0,0,0"  RelativePanel.RightOf="combobox_book_collections" RelativePanel.Above="listview_book_list" FontFamily="Segoe MDL2 Assets" Content="&#xE78C;" HorizontalAlignment="Center" FontSize="16" Click="save_book_info_Click">
                         <ToolTipService.ToolTip>
                             <TextBlock x:Uid="CreateBook_AddTo"/>
@@ -36,7 +36,7 @@
                         x:Name="listview_book_list" RelativePanel.Below="current_book_collection" 
                         Margin="0,10,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
                         Width="350" Height="660" Background="#FFDEDEDE"
-                        EvenColor="LightCoral"  OddColor="LightGray" SelectionChanged="listview_book_list_SelectionChanged">
+                        EvenColor="#FFACFBF9"  OddColor="LightGray" SelectionChanged="listview_book_list_SelectionChanged">
                     </local:AlternatingRowListView>
                     <TextBlock x:Name="itemTotalLabel" x:Uid="ViewBook_TotalItem" FontSize="18" FontWeight="Bold"  RelativePanel.Below="listview_book_list" Margin="0,10,0,0"/>
                     <TextBlock x:Name="itemTotalNums" FontSize="18" FontWeight="Bold" RelativePanel.Below="listview_book_list" RelativePanel.RightOf="itemTotalLabel" Margin="0,10,0,0"/>
