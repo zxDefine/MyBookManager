@@ -378,6 +378,9 @@
   <data name="Dialog_Create_New_Collection_Comment.Text" xml:space="preserve">
     <value>Only numbers, characters, and underscores.</value>
   </data>
+  <data name="FindBook_Collection_Target.Text" xml:space="preserve">
+    <value>Collection Target:</value>
+  </data>
   <data name="ISBNSearchRes_Btn" xml:space="preserve">
     <value>OK</value>
   </data>

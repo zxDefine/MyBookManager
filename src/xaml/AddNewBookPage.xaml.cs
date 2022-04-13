@@ -1,4 +1,4 @@
-﻿using MyBookManager.src.xaml;
+﻿using MyBookManager;
 using Newtonsoft.Json;
 using System;
 using System.Collections;

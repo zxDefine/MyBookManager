@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="CollectionOfTreasures.src.xaml.FindBookInfoPage"
+    x:Class="MyBookManager.FindBookInfoPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:CollectionOfTreasures.src.xaml"
+    xmlns:local="using:MyBookManager"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -23,6 +23,63 @@
             </AppBarButton>
         </CommandBar>
         <Grid VerticalAlignment="Top" Margin="0,40,0,0" Width="1080" HorizontalAlignment="Left">
+            <RelativePanel>
+                <Border x:Name="border_find_info" Margin="20,20,20,10" Width="1040" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Gray">
+                    <RelativePanel>
+                        <TextBlock x:Name="txt_collection_target" x:Uid="FindBook_Collection_Target" FontSize="22" FontWeight="Bold" Margin="10,10,0,10"/>
+                        <ComboBox x:Name="combobox_book_collection_target" RelativePanel.RightOf="txt_collection_target" Margin="10,10,0,10"/>
+                    </RelativePanel>
+                </Border>
+                <local:AlternatingRowListView RelativePanel.Below="border_find_info" Margin="20,10,20,10" Width="1040" Height="720" 
+                                              Background="#FFDEDEDE" EvenColor="#FFACFBF9"  OddColor="LightGray">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0" BorderThickness="0,0,0,2" Padding="5,5,5,5">
+                                <Border Width="120" Height="200">
+                                    <Image Source="{Binding BookImage}"/>
+                                </Border>
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding BookTitle}" FontWeight="Black" Margin="0,30,0,0" FontSize="17"/>
+                                        <TextBlock Text="{Binding BookSubtitle}" FontSize="12" />
+                                        <TextBlock Text="(ISBN:" FontSize="12"/>
+                                        <TextBlock Text="{Binding BookISBN}" Foreground="Crimson" FontSize="12"/>
+                                        <TextBlock Text=")" FontSize="12"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock x:Uid="CreateBook_Author" FontSize="14"/>
+                                        <TextBlock Text=":"/>
+                                        <TextBlock Text="{Binding BookAuthor}"/>
+                                        <TextBlock Text=", "/>
+                                        <TextBlock x:Uid="CreateBook_Translator"/>
+                                        <TextBlock Text=":"/>
+                                        <TextBlock Text="{Binding BookTranslator}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding BookLanguage}"/>
+                                        <TextBlock Text=", "/>
+                                        <TextBlock Text="{Binding BookCountry}"/>
+                                        <TextBlock Text=", "/>
+                                        <TextBlock Text="{Binding BookPublisher}"/>
+                                        <TextBlock Text=", "/>
+                                        <TextBlock Text="{Binding BookPublishDate}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding BookPrice}"/>
+                                        <TextBlock Text=", "/>
+                                        <TextBlock Text="{Binding BookCategory}"/>
+                                        <TextBlock Text=", "/>
+                                        <TextBlock Text="{Binding BookTag}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding BookDescription}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </local:AlternatingRowListView>
+            </RelativePanel>
         </Grid>
     </Grid>
 </Page>

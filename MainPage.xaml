@@ -87,7 +87,7 @@
                     <TextBlock x:Uid="BtnViewBook_Tip"/>
                 </ToolTipService.ToolTip>
             </Button>
-            <Button x:Name="btn_find" x:Uid="BtnFind" Margin="100,25,100,50" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="880" Height="330" RelativePanel.Below="btn_new_book" FontSize="25" FontWeight="ExtraBold">
+            <Button x:Name="btn_find" x:Uid="BtnFind" Margin="100,25,100,50" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="880" Height="330" RelativePanel.Below="btn_new_book" FontSize="25" FontWeight="ExtraBold" Click="btn_find_Click">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="BtnFind_Tip"/>
                 </ToolTipService.ToolTip>

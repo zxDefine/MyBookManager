@@ -198,5 +198,11 @@ namespace MyBookManager
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(ViewBookCollectionPage));
         }
+
+        private void btn_find_Click(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(FindBookInfoPage));
+        }
     }
 }

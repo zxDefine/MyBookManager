@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“内容对话框”项模板
 
-namespace MyBookManager.src.xaml
+namespace MyBookManager
 {
     public sealed partial class LoadingDialog : ContentDialog
     {

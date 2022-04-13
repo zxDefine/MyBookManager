@@ -130,6 +130,7 @@
     <Compile Include="src\class\BookClass.cs" />
     <Compile Include="src\class\BookCollectionClass.cs" />
     <Compile Include="src\class\CommonFunction.cs" />
+    <Compile Include="src\class\FindBookDrawClass.cs" />
     <Compile Include="src\class\GoogleBooksInfo.cs" />
     <Compile Include="src\xaml\CreateNewCollectionContentDialog.xaml.cs">
       <DependentUpon>CreateNewCollectionContentDialog.xaml</DependentUpon>
