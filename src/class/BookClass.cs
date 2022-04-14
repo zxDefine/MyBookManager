@@ -28,6 +28,24 @@ namespace MyBookManager
         {
             Tags = new List<String>();
         }
+
+        public String getTagsString() 
+        {
+            String tagsStr = "-";
+            for(int index = 0; index < Tags.Count; ++index) 
+            {
+                if (0 == index) 
+                {
+                    tagsStr = "";
+                }
+                tagsStr += Tags[index];
+                if (index != Tags.Count - 1) 
+                {
+                    tagsStr += " ";
+                }
+            }
+            return tagsStr;
+        }
     }
 
     class BookPageNameListUnit

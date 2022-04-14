@@ -41,10 +41,6 @@
                                 <TextBlock x:Name="icon_cn" FontFamily="Segoe MDL2 Assets" Text="&#xe88d;"  VerticalAlignment="Center" Margin="0, 8, 0, 0"/>
                                 <RadioButton x:Name="radBtn_lang_cn" IsChecked="False" RelativePanel.RightOf="icon_cn" VerticalAlignment="Center" IsEnabled="False" Margin="10, 0, 0, 0"/>
                             </RelativePanel>
-                            <RelativePanel x:Name="mfItem_btn_tw">
-                                <TextBlock x:Name="icon_tw" FontFamily="Segoe MDL2 Assets" Text="&#xe88c;"  VerticalAlignment="Center" Margin="0, 8, 0, 0"/>
-                                <RadioButton x:Name="radBtn_lang_tw" IsChecked="False" RelativePanel.RightOf="icon_tw" VerticalAlignment="Center" IsEnabled="False" Margin="10, 0, 0, 0"/>
-                            </RelativePanel>
                             <RelativePanel x:Name="mfItem_btn_ja">
                                 <TextBlock x:Name="icon_ja" FontFamily="Segoe MDL2 Assets" Text="&#xec45;"  VerticalAlignment="Center" Margin="0, 8, 0, 0"/>
                                 <RadioButton x:Name="radBtn_lang_ja" IsChecked="False" RelativePanel.RightOf="icon_ja" VerticalAlignment="Center" IsEnabled="False" Margin="10, 0, 0, 0"/>

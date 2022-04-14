@@ -81,10 +81,6 @@ namespace MyBookManager
                     {
                         radBtn_lang_cn.IsChecked = true;
                     }
-                    else
-                    {
-                        radBtn_lang_tw.IsChecked = true;
-                    }
                     break;
             }
         }
@@ -99,10 +95,6 @@ namespace MyBookManager
             if (true == radBtn_lang_cn.IsChecked)
             {
                 currLanguage = "zh-Hans";
-            }
-            else if(true == radBtn_lang_tw.IsChecked)
-            {
-                currLanguage = "zh-Hant";
             }
             else if (true == radBtn_lang_ja.IsChecked)
             {
@@ -123,12 +115,6 @@ namespace MyBookManager
                     if (false == radBtn_lang_cn.IsChecked)
                     {
                         displayChangeLanguageDialog(currLanguage, "zh-Hans");
-                    }
-                    break;
-                case "mfItem_btn_tw":
-                    if (false == radBtn_lang_tw.IsChecked)
-                    {
-                        displayChangeLanguageDialog(currLanguage, "zh-Hant");
                     }
                     break;
                 case "mfItem_btn_ja":

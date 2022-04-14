@@ -72,16 +72,16 @@ namespace MyBookManager
             var textBox = (TextBox)sender;
             IsPrimaryButtonEnabled = false;
             bool isNotValid = false;
-            if(textBox.Text != "") 
+            if (textBox.Text != "")
             {
                 switch (mType)
                 {
                     case AppGloableData.CollectionParameter.BOOK_ISBN:
-                        if(!Regex.IsMatch(textBox.Text, "[0-9]+$")) isNotValid = true;
+                        if (!Regex.IsMatch(textBox.Text, "[0-9]+$")) isNotValid = true;
                         break;
-                    case AppGloableData.CollectionParameter.BOOK_TITLE:break;
-                    case AppGloableData.CollectionParameter.BOOK_SUBTITLE:break;
-                    case AppGloableData.CollectionParameter.BOOK_PUBLISHERS:break;
+                    case AppGloableData.CollectionParameter.BOOK_TITLE: break;
+                    case AppGloableData.CollectionParameter.BOOK_SUBTITLE: break;
+                    case AppGloableData.CollectionParameter.BOOK_PUBLISHERS: break;
                     case AppGloableData.CollectionParameter.BOOK_PRICE:
                         string priceStr = textBox.Text;
                         float price = -1.0F;
@@ -89,12 +89,12 @@ namespace MyBookManager
                         {
                             isNotValid = true;
                         }
-                        else if(priceStr != "" && !float.TryParse(priceStr, out price)) 
+                        else if (priceStr != "" && !float.TryParse(priceStr, out price))
                         {
                             isNotValid = true;
                         }
                         break;
-                    default:break;
+                    default: break;
                 }
 
                 if (isNotValid)
@@ -105,6 +105,19 @@ namespace MyBookManager
                 }
 
                 IsPrimaryButtonEnabled = true;
+            }
+            else 
+            {
+                switch (mType) 
+                {
+                    case AppGloableData.CollectionParameter.BOOK_ISBN:
+                    case AppGloableData.CollectionParameter.BOOK_TITLE:
+                        IsPrimaryButtonEnabled = false;
+                        break;
+                    default:
+                        IsPrimaryButtonEnabled = true;
+                        break;
+                }
             }
         }
     }

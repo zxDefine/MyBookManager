@@ -66,11 +66,7 @@ namespace MyBookManager
         private void inputValue_TextChanged(object sender, TextChangedEventArgs e)
         {
             var textBox = (TextBox)sender;
-            IsPrimaryButtonEnabled = false;
-            if (textBox.Text != "") 
-            {
-                IsPrimaryButtonEnabled = true;
-            }
+            IsPrimaryButtonEnabled = true;
         }
     }
 }

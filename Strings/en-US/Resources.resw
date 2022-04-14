@@ -121,34 +121,22 @@
     <value>Find</value>
   </data>
   <data name="BtnFind_Tip.Text" xml:space="preserve">
-    <value>Find all games and books.</value>
+    <value>Find books</value>
   </data>
   <data name="BtnNewBook.Content" xml:space="preserve">
     <value>Add New Book</value>
   </data>
   <data name="BtnNewBook_Tip.Text" xml:space="preserve">
-    <value>Add a new book to the book collection.</value>
-  </data>
-  <data name="BtnNewGame.Content" xml:space="preserve">
-    <value>Add New Game</value>
-  </data>
-  <data name="BtnNewGame_Tip.Text" xml:space="preserve">
-    <value>Add a new game to the game collection.</value>
+    <value>Add a new book to the book collection</value>
   </data>
   <data name="BtnViewBook.Content" xml:space="preserve">
     <value>View Book Collections</value>
   </data>
   <data name="BtnViewBook_Tip.Text" xml:space="preserve">
-    <value>View and edit a book info of the book collections.</value>
-  </data>
-  <data name="BtnViewGame.Content" xml:space="preserve">
-    <value>View Game Collections</value>
-  </data>
-  <data name="BtnViewGame_Tip.Text" xml:space="preserve">
-    <value>View and edit a game info of the game collections.</value>
+    <value>View and edit a book info of the book collections</value>
   </data>
   <data name="Btn_Add_Book_Collection_Tip.Text" xml:space="preserve">
-    <value>Create a new book collection.</value>
+    <value>Create a new book collection</value>
   </data>
   <data name="Btn_Back_Tip.Text" xml:space="preserve">
     <value>Back</value>
@@ -262,10 +250,10 @@
     <value>ISBN</value>
   </data>
   <data name="CreateBook_ISBN_Comment.Text" xml:space="preserve">
-    <value>The application can automatically find book information from the Google Books through the ISBN code. </value>
+    <value>The application can automatically find book information from the Google Books through the ISBN code</value>
   </data>
   <data name="CreateBook_Language.Text" xml:space="preserve">
-    <value>Languages</value>
+    <value>Language</value>
   </data>
   <data name="CreateBook_Language_CN" xml:space="preserve">
     <value>Simplified Chinese</value>
@@ -304,7 +292,7 @@
     <value>Traditional Chinese</value>
   </data>
   <data name="CreateBook_Not_Add_Content" xml:space="preserve">
-    <value>Please add a new book.</value>
+    <value>Please add a new book</value>
   </data>
   <data name="CreateBook_Not_Add_Title" xml:space="preserve">
     <value>No New Book!</value>
@@ -328,13 +316,13 @@
     <value>Save the book list to collection file</value>
   </data>
   <data name="CreateBook_Save_Dialog_Content" xml:space="preserve">
-    <value>Are you sure you want to save the book list to XXXXXX.</value>
+    <value>Are you sure you want to save the book list to XXXXXX</value>
   </data>
   <data name="CreateBook_Save_Dialog_Content_Error" xml:space="preserve">
     <value>Please input the book title!!</value>
   </data>
   <data name="CreateBook_Save_Dialog_Content_Price_Error" xml:space="preserve">
-    <value>This is not a valid price figure. Please fix it.</value>
+    <value>This is not a valid price figure. Please fix it</value>
   </data>
   <data name="CreateBook_Save_Dialog_Error_Btn" xml:space="preserve">
     <value>OK</value>
@@ -363,9 +351,6 @@
   <data name="CreateNewCollectionLabelTxt_Book" xml:space="preserve">
     <value>Please input the new book collection name:</value>
   </data>
-  <data name="CreateNewCollectionLabelTxt_Game" xml:space="preserve">
-    <value>Please input the new game collection name:</value>
-  </data>
   <data name="Dialog_Create_New_Collection.PrimaryButtonText" xml:space="preserve">
     <value>OK</value>
   </data>
@@ -376,22 +361,37 @@
     <value>Create a new collection</value>
   </data>
   <data name="Dialog_Create_New_Collection_Comment.Text" xml:space="preserve">
-    <value>Only numbers, characters, and underscores.</value>
+    <value>Only numbers, characters, and underscores</value>
   </data>
   <data name="FindBook_Collection_Target.Text" xml:space="preserve">
     <value>Collection Target:</value>
+  </data>
+  <data name="FindBook_Find.Text" xml:space="preserve">
+    <value>Start find</value>
+  </data>
+  <data name="FindBook_Find_Coment.Text" xml:space="preserve">
+    <value>For multiple keywords, separate them with spaces</value>
+  </data>
+  <data name="FindBook_Find_From.Text" xml:space="preserve">
+    <value>Find from:</value>
+  </data>
+  <data name="FindBook_KeyWord.Text" xml:space="preserve">
+    <value>KeyWord</value>
+  </data>
+  <data name="FindBook_Result_Total_Books.Text" xml:space="preserve">
+    <value />
   </data>
   <data name="ISBNSearchRes_Btn" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="ISBNSearchRes_No" xml:space="preserve">
-    <value>Not found the book information with an ISBN of XXXXXX in Google Books.</value>
+    <value>Not found the book information with an ISBN of XXXXXX in Google Books</value>
   </data>
   <data name="ISBNSearchRes_No_Title" xml:space="preserve">
     <value>Not Found</value>
   </data>
   <data name="ISBNSearchRes_Yes" xml:space="preserve">
-    <value>Found the book information.</value>
+    <value>Found the book information</value>
   </data>
   <data name="ISBNSearchRes_Yes_Title" xml:space="preserve">
     <value>Found</value>
@@ -424,49 +424,49 @@
     <value>Edit</value>
   </data>
   <data name="ViewBook_Edit_Title_Author" xml:space="preserve">
-    <value>Please edit the author of the book.</value>
+    <value>Please edit the author of the book</value>
   </data>
   <data name="ViewBook_Edit_Title_Categorys" xml:space="preserve">
-    <value>Please edit the categorys of the book.</value>
+    <value>Please edit the categorys of the book</value>
   </data>
   <data name="ViewBook_Edit_Title_Country" xml:space="preserve">
-    <value>Please edit the country of the book.</value>
+    <value>Please edit the country of the book</value>
   </data>
   <data name="ViewBook_Edit_Title_Description" xml:space="preserve">
-    <value>Please edit the description of the book.</value>
+    <value>Please edit the description of the book</value>
   </data>
   <data name="ViewBook_Edit_Title_ISBN" xml:space="preserve">
-    <value>Please edit the ISBN code of the book.</value>
+    <value>Please edit the ISBN code of the book</value>
   </data>
   <data name="ViewBook_Edit_Title_Languages" xml:space="preserve">
-    <value>Please edit the languages of the book.</value>
+    <value>Please edit the languages of the book</value>
   </data>
   <data name="ViewBook_Edit_Title_Price" xml:space="preserve">
-    <value>Please edit the price of the book.</value>
+    <value>Please edit the price of the book</value>
   </data>
   <data name="ViewBook_Edit_Title_PublishDate" xml:space="preserve">
-    <value>Please edit the publish date of the book.</value>
+    <value>Please edit the publish date of the book</value>
   </data>
   <data name="ViewBook_Edit_Title_Publishers" xml:space="preserve">
-    <value>Please edit the publishers of the book.</value>
+    <value>Please edit the publishers of the book</value>
   </data>
   <data name="ViewBook_Edit_Title_Subtitle" xml:space="preserve">
-    <value>Please edit the subtitle of the book.</value>
+    <value>Please edit the subtitle of the book</value>
   </data>
   <data name="ViewBook_Edit_Title_Tags" xml:space="preserve">
-    <value>Please edit the tags of the book.</value>
+    <value>Please edit the tags of the book</value>
   </data>
   <data name="ViewBook_Edit_Title_Title" xml:space="preserve">
-    <value>Please edit the title of the book.</value>
+    <value>Please edit the title of the book</value>
   </data>
   <data name="ViewBook_Edit_Title_Translator" xml:space="preserve">
-    <value>Please edit the translator of the book.</value>
+    <value>Please edit the translator of the book</value>
   </data>
   <data name="ViewBook_List_Change_Save_Content" xml:space="preserve">
     <value>There are unsaved changes, Do you want to continue?</value>
   </data>
   <data name="ViewBook_No_Book_Update_Content" xml:space="preserve">
-    <value>It cannot be saved because no book information has been updated.</value>
+    <value>It cannot be saved because no book information has been updated</value>
   </data>
   <data name="ViewBook_No_Book_Update_Title" xml:space="preserve">
     <value>No book info has been updated!!</value>
@@ -475,6 +475,6 @@
     <value>There are new updates, but it has not been saved. Do you want to continue?</value>
   </data>
   <data name="ViewBook_TotalItem.Text" xml:space="preserve">
-    <value>Total Books: </value>
+    <value>Total Books:</value>
   </data>
 </root>
