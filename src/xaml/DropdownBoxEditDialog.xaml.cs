@@ -41,12 +41,18 @@ namespace MyBookManager
                 case AppGloableData.CollectionParameter.BOOK_LANGUAGES:
                     labelTitle.Text = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ViewBook_Edit_Title_Languages");
                     inputValue.ItemsSource = AppGloableData.getLanguageDrawNameList();
-                    inputValue.SelectedIndex = selectIndex;
+                    if(selectIndex != -1)
+                    {
+                        inputValue.SelectedIndex = selectIndex;
+                    }
                     break;
                 case AppGloableData.CollectionParameter.BOOK_COUNTRY:
                     labelTitle.Text = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ViewBook_Edit_Title_Country");
                     inputValue.ItemsSource = AppGloableData.getCountryDrawNameList();
-                    inputValue.SelectedIndex = selectIndex;
+                    if (selectIndex != -1)
+                    {
+                        inputValue.SelectedIndex = selectIndex;
+                    }
                     break;
                 default: break;
             }

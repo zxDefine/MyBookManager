@@ -125,6 +125,8 @@ namespace MyBookManager
                 }
             }
 
+            text_find_res_num.Text = resList.Count.ToString();
+
             list_find_result.ItemsSource = resList;
         }
 

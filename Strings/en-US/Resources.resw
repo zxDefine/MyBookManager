@@ -376,10 +376,10 @@
     <value>Find from:</value>
   </data>
   <data name="FindBook_KeyWord.Text" xml:space="preserve">
-    <value>KeyWord</value>
+    <value>KeyWord:</value>
   </data>
   <data name="FindBook_Result_Total_Books.Text" xml:space="preserve">
-    <value />
+    <value>Find Res Totle:</value>
   </data>
   <data name="ISBNSearchRes_Btn" xml:space="preserve">
     <value>OK</value>

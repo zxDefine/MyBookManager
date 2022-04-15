@@ -34,7 +34,7 @@ namespace MyBookManager
             String tagsStr = "-";
             for(int index = 0; index < Tags.Count; ++index) 
             {
-                if (0 == index) 
+                if (0 == index && Tags[index] != "") 
                 {
                     tagsStr = "";
                 }

@@ -43,7 +43,10 @@ namespace MyBookManager
                 default: break;
             }
 
-            inputValue.SelectedDate = new DateTime(int.Parse(oldDate), 01, 01);
+            if(oldDate != "") 
+            {
+                inputValue.SelectedDate = new DateTime(int.Parse(oldDate), 01, 01);
+            }
         }
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)

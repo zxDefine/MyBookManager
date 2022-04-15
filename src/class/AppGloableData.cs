@@ -117,7 +117,7 @@ namespace MyBookManager
         public static int getLanguageEnumIndexByDrawName(string drawName) 
         {
             string[] drawNameList = getLanguageDrawNameList();
-            int index = 0;
+            int index = -1;
             for(int i = 0; i < drawNameList.Length; i++)
             {
                 if (drawNameList[i] == drawName) 
@@ -184,7 +184,7 @@ namespace MyBookManager
         public static int getCountryEnumIndexByDrawName(string drawName)
         {
             string[] drawNameList = getCountryDrawNameList();
-            int index = 0;
+            int index = -1;
             for (int i = 0; i < drawNameList.Length; i++)
             {
                 if (drawNameList[i] == drawName)
