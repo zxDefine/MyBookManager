@@ -252,12 +252,6 @@
     <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
-    <XliffResource Include="MultilingualResources\MyBookManager.ja.xlf" />
-    <XliffResource Include="MultilingualResources\MyBookManager.ko.xlf" />
-    <XliffResource Include="MultilingualResources\MyBookManager.zh-Hans.xlf" />
-    <XliffResource Include="MultilingualResources\MyBookManager.zh-Hant.xlf" />
-  </ItemGroup>
-  <ItemGroup>
     <PRIResource Include="Strings\ko\Resources.resw" />
   </ItemGroup>
   <ItemGroup>

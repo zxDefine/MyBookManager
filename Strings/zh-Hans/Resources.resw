@@ -1,5 +1,110 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -12,85 +117,364 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Btn_Back_Tip.Text" xml:space="preserve">
-    <value>后退</value>
-  </data>
-  <data name="Btn_ExportData_Tip.Text" xml:space="preserve">
-    <value>导出模板或收藏库</value>
-  </data>
-  <data name="Btn_Help_Tip.Text" xml:space="preserve">
-    <value>帮助</value>
-  </data>
-  <data name="Btn_ImportData_Tip.Text" xml:space="preserve">
-    <value>导入模板或收藏库</value>
-  </data>
-  <data name="Btn_Language_Tip.Text" xml:space="preserve">
-    <value>修改应用的显示语言</value>
-  </data>
-  <data name="ChangeLanguageDialogTitle" xml:space="preserve">
-    <value>您想更改应用程序的语言吗？</value>
-  </data>
-  <data name="ChangeLanguageDialogTxt" xml:space="preserve">
-    <value>更改语言将重新启动应用程序。 确定重启？</value>
-  </data>
-  <data name="ChangeLanguageDialog_No" xml:space="preserve">
-    <value>取消</value>
-  </data>
-  <data name="ChangeLanguageDialog_Yes" xml:space="preserve">
-    <value>是的</value>
-  </data>
   <data name="BtnFind.Content" xml:space="preserve">
     <value>查找</value>
   </data>
   <data name="BtnFind_Tip.Text" xml:space="preserve">
-    <value>查找所有游戏和书籍。</value>
-  </data>
-  <data name="BtnNewGame.Content" xml:space="preserve">
-    <value>添加新游戏</value>
-  </data>
-  <data name="BtnNewGame_Tip.Text" xml:space="preserve">
-    <value>将新游戏添加到游戏收藏中。</value>
+    <value>查找图书信息</value>
   </data>
   <data name="BtnNewBook.Content" xml:space="preserve">
-    <value>添加新书</value>
+    <value>添加新的图书</value>
   </data>
   <data name="BtnNewBook_Tip.Text" xml:space="preserve">
-    <value>将一本新书添加到图书收藏中。</value>
-  </data>
-  <data name="BtnViewGame.Content" xml:space="preserve">
-    <value>查看游戏收藏</value>
-  </data>
-  <data name="BtnViewGame_Tip.Text" xml:space="preserve">
-    <value>查看和编辑游戏收藏的游戏信息。</value>
+    <value>添加新的图书到收藏里面</value>
   </data>
   <data name="BtnViewBook.Content" xml:space="preserve">
     <value>查看图书收藏</value>
   </data>
   <data name="BtnViewBook_Tip.Text" xml:space="preserve">
-    <value>查看和编辑图书收藏的图书信息。</value>
-  </data>
-  <data name="CommAddToText.Text" xml:space="preserve">
-    <value>添加到:</value>
+    <value>查看或者编辑图书信息</value>
   </data>
   <data name="Btn_Add_Book_Collection_Tip.Text" xml:space="preserve">
-    <value>创建一个新的图书收藏。</value>
+    <value>创建一个新的图书收藏</value>
+  </data>
+  <data name="Btn_Back_Tip.Text" xml:space="preserve">
+    <value>后退</value>
+  </data>
+  <data name="Btn_CreateBook_AddTag.Text" xml:space="preserve">
+    <value>添加标签</value>
+  </data>
+  <data name="Btn_CreateBook_Delete_Last_Tag.Text" xml:space="preserve">
+    <value>删除最后添加的标签</value>
+  </data>
+  <data name="Btn_ExportData_Tip.Text" xml:space="preserve">
+    <value>导出收藏</value>
+  </data>
+  <data name="Btn_Help_Tip.Text" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Btn_ImportData_Tip.Text" xml:space="preserve">
+    <value>导入收藏</value>
+  </data>
+  <data name="Btn_Language_Tip.Text" xml:space="preserve">
+    <value>更换语言</value>
+  </data>
+  <data name="ChangeLanguageDialogTitle" xml:space="preserve">
+    <value>确定要修改软件的语言吗?</value>
+  </data>
+  <data name="ChangeLanguageDialogTxt" xml:space="preserve">
+    <value>变更显示语言会重启程序,确定要重启吗?</value>
+  </data>
+  <data name="ChangeLanguageDialog_No" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="ChangeLanguageDialog_Yes" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="CommAddToText.Text" xml:space="preserve">
+    <value>添加至:</value>
+  </data>
+  <data name="CreateBook_AddTo.Text" xml:space="preserve">
+    <value>将新书添加到列表中</value>
+  </data>
+  <data name="CreateBook_Author.Text" xml:space="preserve">
+    <value>作者</value>
+  </data>
+  <data name="CreateBook_Categorys.Text" xml:space="preserve">
+    <value>分类</value>
+  </data>
+  <data name="CreateBook_Check_Save_Btn_No" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="CreateBook_Check_Save_Btn_Yes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="CreateBook_Check_Save_Content" xml:space="preserve">
+    <value>发现有新的添加信息,是否需要保存?(保存到XXXXXX)</value>
+  </data>
+  <data name="CreateBook_Check_Save_Title" xml:space="preserve">
+    <value>确定要保存吗?</value>
+  </data>
+  <data name="CreateBook_Country.Text" xml:space="preserve">
+    <value>国家</value>
+  </data>
+  <data name="CreateBook_Country_CN" xml:space="preserve">
+    <value>中国</value>
+  </data>
+  <data name="CreateBook_Country_DE" xml:space="preserve">
+    <value>德国</value>
+  </data>
+  <data name="CreateBook_Country_ES" xml:space="preserve">
+    <value>西班牙</value>
+  </data>
+  <data name="CreateBook_Country_FR" xml:space="preserve">
+    <value>法国</value>
+  </data>
+  <data name="CreateBook_Country_IT" xml:space="preserve">
+    <value>意大利</value>
+  </data>
+  <data name="CreateBook_Country_JP" xml:space="preserve">
+    <value>日本</value>
+  </data>
+  <data name="CreateBook_Country_KR" xml:space="preserve">
+    <value>韩国</value>
+  </data>
+  <data name="CreateBook_Country_OTHER" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="CreateBook_Country_PT" xml:space="preserve">
+    <value>葡萄牙</value>
+  </data>
+  <data name="CreateBook_Country_RU" xml:space="preserve">
+    <value>俄罗斯</value>
+  </data>
+  <data name="CreateBook_Country_UK" xml:space="preserve">
+    <value>英国</value>
+  </data>
+  <data name="CreateBook_Country_US" xml:space="preserve">
+    <value>美国</value>
+  </data>
+  <data name="CreateBook_CoverImage.Text" xml:space="preserve">
+    <value>封面图片</value>
+  </data>
+  <data name="CreateBook_Description.Text" xml:space="preserve">
+    <value>说明</value>
+  </data>
+  <data name="CreateBook_Find_Same_Book_Content" xml:space="preserve">
+    <value>发现列表中已经有相同的图书,是否继续添加到列表中?</value>
+  </data>
+  <data name="CreateBook_Find_Same_Book_Title" xml:space="preserve">
+    <value>列表中有相同图书</value>
+  </data>
+  <data name="CreateBook_ISBN.Text" xml:space="preserve">
+    <value>ISBN</value>
+  </data>
+  <data name="CreateBook_ISBN_Comment.Text" xml:space="preserve">
+    <value>软件可以自动通过ISBN码从GoogleBooks上寻找图书的信息</value>
+  </data>
+  <data name="CreateBook_Language.Text" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="CreateBook_Language_CN" xml:space="preserve">
+    <value>简体中文</value>
+  </data>
+  <data name="CreateBook_Language_DE" xml:space="preserve">
+    <value>德语</value>
+  </data>
+  <data name="CreateBook_Language_EN" xml:space="preserve">
+    <value>英语</value>
+  </data>
+  <data name="CreateBook_Language_ES" xml:space="preserve">
+    <value>西班牙语</value>
+  </data>
+  <data name="CreateBook_Language_FR" xml:space="preserve">
+    <value>法语</value>
+  </data>
+  <data name="CreateBook_Language_IT" xml:space="preserve">
+    <value>意大利语</value>
+  </data>
+  <data name="CreateBook_Language_JP" xml:space="preserve">
+    <value>日语</value>
+  </data>
+  <data name="CreateBook_Language_KR" xml:space="preserve">
+    <value>韩语</value>
+  </data>
+  <data name="CreateBook_Language_Other" xml:space="preserve">
+    <value>其他语言</value>
+  </data>
+  <data name="CreateBook_Language_PT" xml:space="preserve">
+    <value>葡萄牙语</value>
+  </data>
+  <data name="CreateBook_Language_RU" xml:space="preserve">
+    <value>俄语</value>
+  </data>
+  <data name="CreateBook_Language_TW" xml:space="preserve">
+    <value>繁体中文</value>
+  </data>
+  <data name="CreateBook_Not_Add_Content" xml:space="preserve">
+    <value>请添加一本新的图书</value>
+  </data>
+  <data name="CreateBook_Not_Add_Title" xml:space="preserve">
+    <value>没有新添加图书</value>
+  </data>
+  <data name="CreateBook_No_Save_Content" xml:space="preserve">
+    <value>有新的图书被添加,但还没有保存,是否要继续?</value>
+  </data>
+  <data name="CreateBook_No_Save_Title" xml:space="preserve">
+    <value>未保存!!</value>
+  </data>
+  <data name="CreateBook_Price.Text" xml:space="preserve">
+    <value>价格</value>
+  </data>
+  <data name="CreateBook_PublishDate.Text" xml:space="preserve">
+    <value>出版日期</value>
+  </data>
+  <data name="CreateBook_Publisher.Text" xml:space="preserve">
+    <value>出版社</value>
+  </data>
+  <data name="CreateBook_Save.Text" xml:space="preserve">
+    <value>保存图书列表到收藏</value>
+  </data>
+  <data name="CreateBook_Save_Dialog_Content" xml:space="preserve">
+    <value>是否要保存图书列表到XXXXXX?</value>
+  </data>
+  <data name="CreateBook_Save_Dialog_Content_Error" xml:space="preserve">
+    <value>请输入图书名字!!</value>
+  </data>
+  <data name="CreateBook_Save_Dialog_Content_Price_Error" xml:space="preserve">
+    <value>这不是一个有效的价格数字。 请修复它</value>
+  </data>
+  <data name="CreateBook_Save_Dialog_Error_Btn" xml:space="preserve">
+    <value>好的</value>
+  </data>
+  <data name="CreateBook_Save_Dialog_Price_Error" xml:space="preserve">
+    <value>价格错误!</value>
+  </data>
+  <data name="CreateBook_Save_Dialog_Title" xml:space="preserve">
+    <value>保存图书列表</value>
+  </data>
+  <data name="CreateBook_Save_Dialog_Title_Error" xml:space="preserve">
+    <value>没有图书名字</value>
+  </data>
+  <data name="CreateBook_Subtitle.Text" xml:space="preserve">
+    <value>副标题</value>
+  </data>
+  <data name="CreateBook_Tags.Text" xml:space="preserve">
+    <value>标签</value>
+  </data>
+  <data name="CreateBook_Title.Text" xml:space="preserve">
+    <value>图书名</value>
+  </data>
+  <data name="CreateBook_Translator.Text" xml:space="preserve">
+    <value>翻译者</value>
+  </data>
+  <data name="CreateNewCollectionLabelTxt_Book" xml:space="preserve">
+    <value>请输入新的图书收藏名称:</value>
   </data>
   <data name="Dialog_Create_New_Collection.PrimaryButtonText" xml:space="preserve">
-    <value>确定</value>
+    <value>好的</value>
   </data>
   <data name="Dialog_Create_New_Collection.SecondaryButtonText" xml:space="preserve">
     <value>取消</value>
   </data>
   <data name="Dialog_Create_New_Collection.Title" xml:space="preserve">
-    <value>创建新收藏</value>
-  </data>
-  <data name="CreateNewCollectionLabelTxt_Book" xml:space="preserve">
-    <value>请输入新的图书收藏名称:</value>
-  </data>
-  <data name="CreateNewCollectionLabelTxt_Game" xml:space="preserve">
-    <value>请输入新的游戏收藏名称:</value>
+    <value>新建一个收藏</value>
   </data>
   <data name="Dialog_Create_New_Collection_Comment.Text" xml:space="preserve">
-    <value>只能输入数字、字符和下划线。</value>
+    <value>只能输入数字,字符以及下划线</value>
+  </data>
+  <data name="FindBook_Collection_Target.Text" xml:space="preserve">
+    <value>收藏目标:</value>
+  </data>
+  <data name="FindBook_Find.Text" xml:space="preserve">
+    <value>开始查找</value>
+  </data>
+  <data name="FindBook_Find_Coment.Text" xml:space="preserve">
+    <value>复数个关键字的话,请用空格分隔它们</value>
+  </data>
+  <data name="FindBook_Find_From.Text" xml:space="preserve">
+    <value>查找于:</value>
+  </data>
+  <data name="FindBook_KeyWord.Text" xml:space="preserve">
+    <value>关键字:</value>
+  </data>
+  <data name="FindBook_Result_Total_Books.Text" xml:space="preserve">
+    <value>总共找到图书:</value>
+  </data>
+  <data name="ISBNSearchRes_Btn" xml:space="preserve">
+    <value>好的</value>
+  </data>
+  <data name="ISBNSearchRes_No" xml:space="preserve">
+    <value>没有从Google Books上找到关于ISBN XXXXXX的图书信息</value>
+  </data>
+  <data name="ISBNSearchRes_No_Title" xml:space="preserve">
+    <value>未找到</value>
+  </data>
+  <data name="ISBNSearchRes_Yes" xml:space="preserve">
+    <value>查找图书信息</value>
+  </data>
+  <data name="ISBNSearchRes_Yes_Title" xml:space="preserve">
+    <value>找到</value>
+  </data>
+  <data name="ViewBook_Btn_Edit.Text" xml:space="preserve">
+    <value>编辑它</value>
+  </data>
+  <data name="ViewBook_Check_Save_Btn_No" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="ViewBook_Check_Save_Btn_Yes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="ViewBook_Check_Save_Content" xml:space="preserve">
+    <value>发现有新的修改信息,是否要保存?(保存到XXXXXX)</value>
+  </data>
+  <data name="ViewBook_Check_Save_Title" xml:space="preserve">
+    <value>是否要保存?</value>
+  </data>
+  <data name="ViewBook_CurrentBookCollection.Text" xml:space="preserve">
+    <value>当前的图书收藏:</value>
+  </data>
+  <data name="ViewBook_Edit_Dialog.PrimaryButtonText" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="ViewBook_Edit_Dialog.SecondaryButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="ViewBook_Edit_Dialog.Title" xml:space="preserve">
+    <value>编辑它</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Author" xml:space="preserve">
+    <value>请编辑图书的作者</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Categorys" xml:space="preserve">
+    <value>请编辑图书的分类</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Country" xml:space="preserve">
+    <value>请编辑图书的国家</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Description" xml:space="preserve">
+    <value>请编辑图书的说明</value>
+  </data>
+  <data name="ViewBook_Edit_Title_ISBN" xml:space="preserve">
+    <value>请编辑图书的ISBN</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Languages" xml:space="preserve">
+    <value>请编辑图书的语言</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Price" xml:space="preserve">
+    <value>请编辑图书的价格</value>
+  </data>
+  <data name="ViewBook_Edit_Title_PublishDate" xml:space="preserve">
+    <value>请编辑图书的出版日期</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Publishers" xml:space="preserve">
+    <value>请编辑图书的出版社</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Subtitle" xml:space="preserve">
+    <value>请编辑图书的副标题</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Tags" xml:space="preserve">
+    <value>请编辑图书的标签</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Title" xml:space="preserve">
+    <value>请编辑图书的名字</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Translator" xml:space="preserve">
+    <value>请编辑图书的翻译者</value>
+  </data>
+  <data name="ViewBook_List_Change_Save_Content" xml:space="preserve">
+    <value>发现有新的编辑未保存,是否要继续?</value>
+  </data>
+  <data name="ViewBook_No_Book_Update_Content" xml:space="preserve">
+    <value>无法保存,因为没有图书被编辑</value>
+  </data>
+  <data name="ViewBook_No_Book_Update_Title" xml:space="preserve">
+    <value>没有图书被编辑</value>
+  </data>
+  <data name="ViewBook_No_Save_Content" xml:space="preserve">
+    <value>有新的图书被编辑,但还没有被保存,是否要继续?</value>
+  </data>
+  <data name="ViewBook_TotalItem.Text" xml:space="preserve">
+    <value>总图书:</value>
   </data>
 </root>

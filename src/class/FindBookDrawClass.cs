@@ -23,6 +23,7 @@ namespace MyBookManager
         public string BookCategory { get; set; }
         public string BookTag { get; set; }
         public string BookDescription { get; set; }
+        public string BookFromCollection { get; set; }
 
         public FindBookDrawClass()
         {
@@ -40,6 +41,7 @@ namespace MyBookManager
             BookCategory = "-";
             BookTag = "-";
             BookDescription = "-";
+            BookFromCollection = "-";
         }
     }
 }

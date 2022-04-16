@@ -95,33 +95,125 @@ namespace MyBookManager
 
             List<FindBookDrawClass> resList = new List<FindBookDrawClass>();
 
-            foreach(var bookCollection in bookCollectionList)
+            //get key word
+            List<string> keyWordList = new List<string>();
+            foreach (string keyWord in textbox_input_keyword.Text.ToString().Split(' ', '\r'))
+            {
+                if(keyWord != "")
+                {
+                    keyWordList.Add(keyWord);
+                }
+            }
+            int size = keyWordList.Count;
+
+            foreach (var bookCollection in bookCollectionList)
             {
                 foreach(var bookInfo in bookCollection.BookList)
                 {
-                    FindBookDrawClass bookDrawInfo = new FindBookDrawClass();
-                    bookDrawInfo.BookTitle = bookInfo.Title == "" ? "-" : bookInfo.Title;
-                    bookDrawInfo.BookSubtitle = bookInfo.Subtitle == "" ? "-" : bookInfo.Subtitle;
-                    bookDrawInfo.BookISBN = bookInfo.ISBN == "" ? "-" : bookInfo.ISBN;
-                    bookDrawInfo.BookAuthor = bookInfo.Author == "" ? "-" : bookInfo.Author;
-                    bookDrawInfo.BookTranslator = bookInfo.Translator == "" ? "-" : bookInfo.Translator;
-                    bookDrawInfo.BookLanguage = bookInfo.Language == "" ? "-" : bookInfo.Language;
-                    bookDrawInfo.BookCountry = bookInfo.Country == "" ? "-" : bookInfo.Country;
-                    bookDrawInfo.BookPublisher = bookInfo.Publisher == "" ? "-" : bookInfo.Publisher;
-                    bookDrawInfo.BookPublishDate = bookInfo.PublishDate == "" ? "-" : bookInfo.PublishDate;
-                    bookDrawInfo.BookPrice = bookInfo.Price.ToString();
-                    bookDrawInfo.BookCategory = bookInfo.Categorys == "" ? "-" : bookInfo.Categorys;
-                    bookDrawInfo.BookTag = bookInfo.getTagsString();
-                    bookDrawInfo.BookDescription = bookInfo.Description == "" ? "-" : bookInfo.Description;
+                    Boolean bCanAdd = false;
+                    if (size != 0) 
+                    {
+                        foreach(string keyWord in keyWordList)
+                        {
+                            if(true == cb_from_title.IsChecked && bookInfo.Title.IndexOf(keyWord, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                bCanAdd = true;
+                                continue;
+                            }
 
-                    var bytes = Convert.FromBase64String(bookInfo.CoverImageBase64);
-                    var stream = new MemoryStream(bytes);
-                    var bitmap = new BitmapImage();
-                    var source = stream.AsRandomAccessStream();
-                    bitmap.SetSourceAsync(source);
-                    bookDrawInfo.BookImage = bitmap;
+                            if (true == cb_from_subtitle.IsChecked && bookInfo.Subtitle.IndexOf(keyWord, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                bCanAdd = true;
+                                continue;
+                            }
 
-                    resList.Add(bookDrawInfo);
+                            if (true == cb_from_description.IsChecked && bookInfo.Description.IndexOf(keyWord, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                bCanAdd = true;
+                                continue;
+                            }
+
+                            if (true == cb_from_publisher.IsChecked && bookInfo.Publisher.IndexOf(keyWord, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                bCanAdd = true;
+                                continue;
+                            }
+
+                            if (true == cb_from_author.IsChecked && bookInfo.Author.IndexOf(keyWord, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                bCanAdd = true;
+                                continue;
+                            }
+
+                            if (true == cb_from_translator.IsChecked && bookInfo.Translator.IndexOf(keyWord, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                bCanAdd = true;
+                                continue;
+                            }
+
+                            if (true == cb_from_categorys.IsChecked && bookInfo.Categorys.IndexOf(keyWord, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                bCanAdd = true;
+                                continue;
+                            }
+
+                            if (true == cb_from_tags.IsChecked && bookInfo.getTagsString().IndexOf(keyWord, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                bCanAdd = true;
+                                continue;
+                            }
+
+                            if (true == cb_from_language.IsChecked && bookInfo.Language.IndexOf(keyWord, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                bCanAdd = true;
+                                continue;
+                            }
+
+                            if (true == cb_from_country.IsChecked && bookInfo.Country.IndexOf(keyWord, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                bCanAdd = true;
+                                continue;
+                            }
+
+                            if (true == cb_from_publishDate.IsChecked && bookInfo.PublishDate.IndexOf(keyWord, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                bCanAdd = true;
+                                continue;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        bCanAdd = true;
+                    }
+
+                    if (bCanAdd)
+                    {
+                        FindBookDrawClass bookDrawInfo = new FindBookDrawClass();
+                        bookDrawInfo.BookTitle = bookInfo.Title == "" ? "-" : bookInfo.Title;
+                        bookDrawInfo.BookSubtitle = bookInfo.Subtitle == "" ? "-" : bookInfo.Subtitle;
+                        bookDrawInfo.BookISBN = bookInfo.ISBN == "" ? "-" : bookInfo.ISBN;
+                        bookDrawInfo.BookAuthor = bookInfo.Author == "" ? "-" : bookInfo.Author;
+                        bookDrawInfo.BookTranslator = bookInfo.Translator == "" ? "-" : bookInfo.Translator;
+                        bookDrawInfo.BookLanguage = bookInfo.Language == "" ? "-" : bookInfo.Language;
+                        bookDrawInfo.BookCountry = bookInfo.Country == "" ? "-" : bookInfo.Country;
+                        bookDrawInfo.BookPublisher = bookInfo.Publisher == "" ? "-" : bookInfo.Publisher;
+                        bookDrawInfo.BookPublishDate = bookInfo.PublishDate == "" ? "-" : bookInfo.PublishDate;
+                        bookDrawInfo.BookPrice = bookInfo.Price.ToString();
+                        bookDrawInfo.BookCategory = bookInfo.Categorys == "" ? "-" : bookInfo.Categorys;
+                        bookDrawInfo.BookTag = bookInfo.getTagsString();
+                        bookDrawInfo.BookDescription = bookInfo.Description == "" ? "-" : bookInfo.Description;
+                        bookDrawInfo.BookFromCollection = bookCollection.Name;
+
+                        var bytes = Convert.FromBase64String(bookInfo.CoverImageBase64);
+                        var stream = new MemoryStream(bytes);
+                        var bitmap = new BitmapImage();
+                        var source = stream.AsRandomAccessStream();
+                        bitmap.SetSourceAsync(source);
+                        bookDrawInfo.BookImage = bitmap;
+
+                        resList.Add(bookDrawInfo);
+                    }
                 }
             }
 
