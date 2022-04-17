@@ -4,7 +4,7 @@ namespace MyBookManager
 {
     public static class AppGloableData
     {
-        public static readonly string appBooksFolderName = "BookCollectionLib";
+        public static readonly string appBooksFolderName = "MyBookManager";
         public static readonly int appBeginId = -1;
 
         private static int appBookCollectionBaseID = 0;

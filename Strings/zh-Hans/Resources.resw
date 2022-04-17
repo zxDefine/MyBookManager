@@ -147,11 +147,11 @@
   <data name="Btn_CreateBook_Delete_Last_Tag.Text" xml:space="preserve">
     <value>删除最后添加的标签</value>
   </data>
+  <data name="Btn_Del_Collection.Text" xml:space="preserve">
+    <value>删除收藏</value>
+  </data>
   <data name="Btn_ExportData_Tip.Text" xml:space="preserve">
     <value>导出收藏</value>
-  </data>
-  <data name="Btn_Help_Tip.Text" xml:space="preserve">
-    <value>帮助</value>
   </data>
   <data name="Btn_ImportData_Tip.Text" xml:space="preserve">
     <value>导入收藏</value>
@@ -381,6 +381,21 @@
   <data name="FindBook_Result_Total_Books.Text" xml:space="preserve">
     <value>总共找到图书:</value>
   </data>
+  <data name="Import_Error_Content_Cannot_Cover" xml:space="preserve">
+    <value>文件内格式不正确,不能读取!请重新导入文件!</value>
+  </data>
+  <data name="Import_Error_Content_FileName_Error" xml:space="preserve">
+    <value>文件名必须是"book_[id]_[CollectionFileName].json",请重新导入文件!</value>
+  </data>
+  <data name="Import_Error_Content_Id_Exist" xml:space="preserve">
+    <value>文件ID已经存在,请重新导入文件!</value>
+  </data>
+  <data name="Import_Error_Content_NameID_Diff" xml:space="preserve">
+    <value>文件名和文件ID跟文件内的文件名和ID不匹配.请重新导入文件!</value>
+  </data>
+  <data name="Import_Error_Title" xml:space="preserve">
+    <value>导入错误</value>
+  </data>
   <data name="ISBNSearchRes_Btn" xml:space="preserve">
     <value>好的</value>
   </data>
@@ -391,10 +406,28 @@
     <value>未找到</value>
   </data>
   <data name="ISBNSearchRes_Yes" xml:space="preserve">
-    <value>查找图书信息</value>
+    <value>查找到图书信息</value>
   </data>
   <data name="ISBNSearchRes_Yes_Title" xml:space="preserve">
     <value>找到</value>
+  </data>
+  <data name="MainPage_Del_Collection.PrimaryButtonText" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="MainPage_Del_Collection.SecondaryButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="MainPage_Del_Collection.Title" xml:space="preserve">
+    <value>删除图书收藏</value>
+  </data>
+  <data name="MainPage_Del_Collection_Alarm_Content" xml:space="preserve">
+    <value>确认是否删除图书收藏 XXXXXX?</value>
+  </data>
+  <data name="MainPage_Del_Collection_Alarm_Title" xml:space="preserve">
+    <value>删除图书收藏</value>
+  </data>
+  <data name="MainPage_Del_Collection_Content.Text" xml:space="preserve">
+    <value>请选择想要删除的图书收藏</value>
   </data>
   <data name="ViewBook_Btn_Edit.Text" xml:space="preserve">
     <value>编辑它</value>
@@ -413,6 +446,21 @@
   </data>
   <data name="ViewBook_CurrentBookCollection.Text" xml:space="preserve">
     <value>当前的图书收藏:</value>
+  </data>
+  <data name="ViewBook_Del_Book_Del_Alarm_Content" xml:space="preserve">
+    <value>确认要删除图书「XXXXXX」?</value>
+  </data>
+  <data name="ViewBook_Del_Book_Del_Alarm_Title" xml:space="preserve">
+    <value>删除图书</value>
+  </data>
+  <data name="ViewBook_Del_Book_No_Select_Content" xml:space="preserve">
+    <value>请选择一本你想要删除的图书</value>
+  </data>
+  <data name="ViewBook_Del_Book_No_Select_Title" xml:space="preserve">
+    <value>没有被选择的图书!!</value>
+  </data>
+  <data name="ViewBook_Del_The_Book.Text" xml:space="preserve">
+    <value>删除图书信息</value>
   </data>
   <data name="ViewBook_Edit_Dialog.PrimaryButtonText" xml:space="preserve">
     <value>保存</value>
@@ -473,6 +521,9 @@
   </data>
   <data name="ViewBook_No_Save_Content" xml:space="preserve">
     <value>有新的图书被编辑,但还没有被保存,是否要继续?</value>
+  </data>
+  <data name="ViewBook_Save_The_Book.Text" xml:space="preserve">
+    <value>保存图书信息</value>
   </data>
   <data name="ViewBook_TotalItem.Text" xml:space="preserve">
     <value>总图书:</value>

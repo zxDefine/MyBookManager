@@ -1,5 +1,110 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -12,85 +117,415 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BtnFind.Content" xml:space="preserve">
+    <value>サーチ</value>
+  </data>
+  <data name="BtnFind_Tip.Text" xml:space="preserve">
+    <value>本の情報をサーチします</value>
+  </data>
+  <data name="BtnNewBook.Content" xml:space="preserve">
+    <value>新しい本を追加します</value>
+  </data>
+  <data name="BtnNewBook_Tip.Text" xml:space="preserve">
+    <value>コレクションに新しい本を追加します</value>
+  </data>
+  <data name="BtnViewBook.Content" xml:space="preserve">
+    <value>本のコレクションを見ます</value>
+  </data>
+  <data name="BtnViewBook_Tip.Text" xml:space="preserve">
+    <value>本の情報の表示または編集</value>
+  </data>
+  <data name="Btn_Add_Book_Collection_Tip.Text" xml:space="preserve">
+    <value>新しい本のコレクションを作成します</value>
+  </data>
   <data name="Btn_Back_Tip.Text" xml:space="preserve">
-    <value>前に戻ります</value>
+    <value>戻ります</value>
+  </data>
+  <data name="Btn_CreateBook_AddTag.Text" xml:space="preserve">
+    <value>タグを追加します</value>
+  </data>
+  <data name="Btn_CreateBook_Delete_Last_Tag.Text" xml:space="preserve">
+    <value>最後に追加されたタグを削除します</value>
+  </data>
+  <data name="Btn_Del_Collection.Text" xml:space="preserve">
+    <value>コレクションを削除します</value>
   </data>
   <data name="Btn_ExportData_Tip.Text" xml:space="preserve">
-    <value>テンプレートまたはコレクションライブラリをエクスポートします</value>
-  </data>
-  <data name="Btn_Help_Tip.Text" xml:space="preserve">
-    <value>ヘルプ</value>
+    <value>コレクションをエクスポートします</value>
   </data>
   <data name="Btn_ImportData_Tip.Text" xml:space="preserve">
-    <value>テンプレートまたはコレクションライブラリをインポートします</value>
+    <value>コレクションをインポートします</value>
   </data>
   <data name="Btn_Language_Tip.Text" xml:space="preserve">
-    <value>アプリの表示言語変更</value>
+    <value>言語変更</value>
   </data>
   <data name="ChangeLanguageDialogTitle" xml:space="preserve">
-    <value>アプリの言語を変更しますか？</value>
+    <value>ソフトの言語を変更してもよろしいですか？</value>
   </data>
   <data name="ChangeLanguageDialogTxt" xml:space="preserve">
-    <value>言語を変更すると、アプリが再起動します。 再起動してもよろしいですか？</value>
+    <value>表示言語を変更するとプログラムが再起動しますが、再起動してもよろしいですか？</value>
   </data>
   <data name="ChangeLanguageDialog_No" xml:space="preserve">
     <value>キャンセル</value>
   </data>
   <data name="ChangeLanguageDialog_Yes" xml:space="preserve">
-    <value>はい</value>
-  </data>
-  <data name="BtnFind.Content" xml:space="preserve">
-    <value>検索</value>
-  </data>
-  <data name="BtnFind_Tip.Text" xml:space="preserve">
-    <value>すべてのゲームと本の情報を検索します。</value>
-  </data>
-  <data name="BtnNewGame.Content" xml:space="preserve">
-    <value>新しいゲームの追加</value>
-  </data>
-  <data name="BtnNewGame_Tip.Text" xml:space="preserve">
-    <value>ゲームコレクションに新しいゲームを追加します。</value>
-  </data>
-  <data name="BtnNewBook.Content" xml:space="preserve">
-    <value>新しい本の追加</value>
-  </data>
-  <data name="BtnNewBook_Tip.Text" xml:space="preserve">
-    <value>本コレクションに新しい本を追加します。</value>
-  </data>
-  <data name="BtnViewGame.Content" xml:space="preserve">
-    <value>ゲームコレクションを見ます</value>
-  </data>
-  <data name="BtnViewGame_Tip.Text" xml:space="preserve">
-    <value>ゲームコレクションのゲーム情報を表示および編集します。</value>
-  </data>
-  <data name="BtnViewBook.Content" xml:space="preserve">
-    <value>本コレクションを見ます</value>
-  </data>
-  <data name="BtnViewBook_Tip.Text" xml:space="preserve">
-    <value>本コレクションのゲーム情報を表示および編集します。</value>
+    <value>確認</value>
   </data>
   <data name="CommAddToText.Text" xml:space="preserve">
-    <value>追加場所:</value>
+    <value>追加場所：</value>
   </data>
-  <data name="Btn_Add_Book_Collection_Tip.Text" xml:space="preserve">
-    <value>新しい本コレクションを作成します。</value>
+  <data name="CreateBook_AddTo.Text" xml:space="preserve">
+    <value>リストに新しい本を追加します</value>
+  </data>
+  <data name="CreateBook_Author.Text" xml:space="preserve">
+    <value>作者</value>
+  </data>
+  <data name="CreateBook_Categorys.Text" xml:space="preserve">
+    <value>カテゴリー</value>
+  </data>
+  <data name="CreateBook_Check_Save_Btn_No" xml:space="preserve">
+    <value>いいえ</value>
+  </data>
+  <data name="CreateBook_Check_Save_Btn_Yes" xml:space="preserve">
+    <value>はい</value>
+  </data>
+  <data name="CreateBook_Check_Save_Content" xml:space="preserve">
+    <value>新しい追加情報が見つかりました。保存する必要がありますか？（XXXXXXに保存）</value>
+  </data>
+  <data name="CreateBook_Check_Save_Title" xml:space="preserve">
+    <value>保存してもよろしいですか？</value>
+  </data>
+  <data name="CreateBook_Country.Text" xml:space="preserve">
+    <value>国</value>
+  </data>
+  <data name="CreateBook_Country_CN" xml:space="preserve">
+    <value>中国</value>
+  </data>
+  <data name="CreateBook_Country_DE" xml:space="preserve">
+    <value>ドイツ</value>
+  </data>
+  <data name="CreateBook_Country_ES" xml:space="preserve">
+    <value>スペイン</value>
+  </data>
+  <data name="CreateBook_Country_FR" xml:space="preserve">
+    <value>フランス</value>
+  </data>
+  <data name="CreateBook_Country_IT" xml:space="preserve">
+    <value>イタリア</value>
+  </data>
+  <data name="CreateBook_Country_JP" xml:space="preserve">
+    <value>日本</value>
+  </data>
+  <data name="CreateBook_Country_KR" xml:space="preserve">
+    <value>韓国</value>
+  </data>
+  <data name="CreateBook_Country_OTHER" xml:space="preserve">
+    <value>その他</value>
+  </data>
+  <data name="CreateBook_Country_PT" xml:space="preserve">
+    <value>ポルトガル</value>
+  </data>
+  <data name="CreateBook_Country_RU" xml:space="preserve">
+    <value>ロシア</value>
+  </data>
+  <data name="CreateBook_Country_UK" xml:space="preserve">
+    <value>イギリス</value>
+  </data>
+  <data name="CreateBook_Country_US" xml:space="preserve">
+    <value>アメリカ</value>
+  </data>
+  <data name="CreateBook_CoverImage.Text" xml:space="preserve">
+    <value>カバー画像</value>
+  </data>
+  <data name="CreateBook_Description.Text" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="CreateBook_Find_Same_Book_Content" xml:space="preserve">
+    <value>同じ本がすでにリストに存在しています。リストに追加しますか？</value>
+  </data>
+  <data name="CreateBook_Find_Same_Book_Title" xml:space="preserve">
+    <value>リストに同じ本が存在します</value>
+  </data>
+  <data name="CreateBook_ISBN.Text" xml:space="preserve">
+    <value>ISBN</value>
+  </data>
+  <data name="CreateBook_ISBN_Comment.Text" xml:space="preserve">
+    <value>ソフトは、ISBNコードによってGoogleBooksから本の情報を自動的に検索できます</value>
+  </data>
+  <data name="CreateBook_Language.Text" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="CreateBook_Language_CN" xml:space="preserve">
+    <value>簡体字中国語</value>
+  </data>
+  <data name="CreateBook_Language_DE" xml:space="preserve">
+    <value>ドイツ語</value>
+  </data>
+  <data name="CreateBook_Language_EN" xml:space="preserve">
+    <value>英語</value>
+  </data>
+  <data name="CreateBook_Language_ES" xml:space="preserve">
+    <value>スペイン語</value>
+  </data>
+  <data name="CreateBook_Language_FR" xml:space="preserve">
+    <value>フランス語</value>
+  </data>
+  <data name="CreateBook_Language_IT" xml:space="preserve">
+    <value>イタリア語</value>
+  </data>
+  <data name="CreateBook_Language_JP" xml:space="preserve">
+    <value>日本語</value>
+  </data>
+  <data name="CreateBook_Language_KR" xml:space="preserve">
+    <value>韓国語</value>
+  </data>
+  <data name="CreateBook_Language_Other" xml:space="preserve">
+    <value>他の言語</value>
+  </data>
+  <data name="CreateBook_Language_PT" xml:space="preserve">
+    <value>ポルトガル語</value>
+  </data>
+  <data name="CreateBook_Language_RU" xml:space="preserve">
+    <value>ロシア語</value>
+  </data>
+  <data name="CreateBook_Language_TW" xml:space="preserve">
+    <value>繁体字中国語</value>
+  </data>
+  <data name="CreateBook_Not_Add_Content" xml:space="preserve">
+    <value>新しい本を追加してください</value>
+  </data>
+  <data name="CreateBook_Not_Add_Title" xml:space="preserve">
+    <value>追加された本はありません。</value>
+  </data>
+  <data name="CreateBook_No_Save_Content" xml:space="preserve">
+    <value>新しい本が追加されましたが、まだ保存されていません。続行しますか？</value>
+  </data>
+  <data name="CreateBook_No_Save_Title" xml:space="preserve">
+    <value>未保存!!</value>
+  </data>
+  <data name="CreateBook_Price.Text" xml:space="preserve">
+    <value>価格</value>
+  </data>
+  <data name="CreateBook_PublishDate.Text" xml:space="preserve">
+    <value>発行日</value>
+  </data>
+  <data name="CreateBook_Publisher.Text" xml:space="preserve">
+    <value>出版社</value>
+  </data>
+  <data name="CreateBook_Save.Text" xml:space="preserve">
+    <value>本のリストをコレクションに保存します</value>
+  </data>
+  <data name="CreateBook_Save_Dialog_Content" xml:space="preserve">
+    <value>本のリストをXXXXXXに保存しますか？</value>
+  </data>
+  <data name="CreateBook_Save_Dialog_Content_Error" xml:space="preserve">
+    <value>本のタイトルを入力してください!!</value>
+  </data>
+  <data name="CreateBook_Save_Dialog_Content_Price_Error" xml:space="preserve">
+    <value>これは有効な価格数字ではありません。 直してください</value>
+  </data>
+  <data name="CreateBook_Save_Dialog_Error_Btn" xml:space="preserve">
+    <value>了解</value>
+  </data>
+  <data name="CreateBook_Save_Dialog_Price_Error" xml:space="preserve">
+    <value>価格エラー!</value>
+  </data>
+  <data name="CreateBook_Save_Dialog_Title" xml:space="preserve">
+    <value>本のリストの保存</value>
+  </data>
+  <data name="CreateBook_Save_Dialog_Title_Error" xml:space="preserve">
+    <value>本のタイトルはありません</value>
+  </data>
+  <data name="CreateBook_Subtitle.Text" xml:space="preserve">
+    <value>サブタイトル</value>
+  </data>
+  <data name="CreateBook_Tags.Text" xml:space="preserve">
+    <value>タグ</value>
+  </data>
+  <data name="CreateBook_Title.Text" xml:space="preserve">
+    <value>タイトル</value>
+  </data>
+  <data name="CreateBook_Translator.Text" xml:space="preserve">
+    <value>翻訳者</value>
+  </data>
+  <data name="CreateNewCollectionLabelTxt_Book" xml:space="preserve">
+    <value>新しい本のコレクション名を入力してください：</value>
   </data>
   <data name="Dialog_Create_New_Collection.PrimaryButtonText" xml:space="preserve">
-    <value>確定</value>
+    <value>新規</value>
   </data>
   <data name="Dialog_Create_New_Collection.SecondaryButtonText" xml:space="preserve">
     <value>キャンセル</value>
   </data>
   <data name="Dialog_Create_New_Collection.Title" xml:space="preserve">
-    <value>コレクションの新規</value>
-  </data>
-  <data name="CreateNewCollectionLabelTxt_Book" xml:space="preserve">
-    <value>新規したい本コレクションの名前を入力してください:</value>
-  </data>
-  <data name="CreateNewCollectionLabelTxt_Game" xml:space="preserve">
-    <value>新規したいゲームコレクションの名前を入力してください:</value>
+    <value>新しいコレクションを作成します</value>
   </data>
   <data name="Dialog_Create_New_Collection_Comment.Text" xml:space="preserve">
-    <value>数字、アルファベット、および下線のみ。</value>
+    <value>入力できるのは数字、文字、アンダースコアのみです</value>
+  </data>
+  <data name="FindBook_Collection_Target.Text" xml:space="preserve">
+    <value>コレクションターゲット:</value>
+  </data>
+  <data name="FindBook_Find.Text" xml:space="preserve">
+    <value>サーチ開始</value>
+  </data>
+  <data name="FindBook_Find_Coment.Text" xml:space="preserve">
+    <value>複数のキーワードの場合は、スペースで区切してください</value>
+  </data>
+  <data name="FindBook_Find_From.Text" xml:space="preserve">
+    <value>サーチターゲット:</value>
+  </data>
+  <data name="FindBook_KeyWord.Text" xml:space="preserve">
+    <value>キーワード:</value>
+  </data>
+  <data name="FindBook_Result_Total_Books.Text" xml:space="preserve">
+    <value>見つかった本の数:</value>
+  </data>
+  <data name="Import_Error_Content_Cannot_Cover" xml:space="preserve">
+    <value>ファイルの内容のフォーマットが正しくないため、読み取ることができません！ファイルを再インポートしてください！</value>
+  </data>
+  <data name="Import_Error_Content_FileName_Error" xml:space="preserve">
+    <value>ファイル名は「book_[id]_[CollectionFileName].json」である必要があります。ファイルを再インポートしてください。</value>
+  </data>
+  <data name="Import_Error_Content_Id_Exist" xml:space="preserve">
+    <value>ファイルIDはすでに存在しています。ファイルを再インポートしてください！</value>
+  </data>
+  <data name="Import_Error_Content_NameID_Diff" xml:space="preserve">
+    <value>ファイル名とファイルIDがファイル内のファイル名とIDと一致しません。ファイルを再インポートしてください。</value>
+  </data>
+  <data name="Import_Error_Title" xml:space="preserve">
+    <value>インポートエラー</value>
+  </data>
+  <data name="ISBNSearchRes_Btn" xml:space="preserve">
+    <value>了解</value>
+  </data>
+  <data name="ISBNSearchRes_No" xml:space="preserve">
+    <value>Google BooksからISBN XXXXXXの本の情報を見つかりませんでした</value>
+  </data>
+  <data name="ISBNSearchRes_No_Title" xml:space="preserve">
+    <value>見つかりません</value>
+  </data>
+  <data name="ISBNSearchRes_Yes" xml:space="preserve">
+    <value>本の情報を見つかりました</value>
+  </data>
+  <data name="ISBNSearchRes_Yes_Title" xml:space="preserve">
+    <value>見つかりました</value>
+  </data>
+  <data name="MainPage_Del_Collection.PrimaryButtonText" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="MainPage_Del_Collection.SecondaryButtonText" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="MainPage_Del_Collection.Title" xml:space="preserve">
+    <value>これクッションを削除します</value>
+  </data>
+  <data name="MainPage_Del_Collection_Alarm_Content" xml:space="preserve">
+    <value>XXXXXXを削除します、よろしいですか？</value>
+  </data>
+  <data name="MainPage_Del_Collection_Alarm_Title" xml:space="preserve">
+    <value>コレクション削除</value>
+  </data>
+  <data name="MainPage_Del_Collection_Content.Text" xml:space="preserve">
+    <value>削除したいコレクションを選択してください。</value>
+  </data>
+  <data name="ViewBook_Btn_Edit.Text" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="ViewBook_Check_Save_Btn_No" xml:space="preserve">
+    <value>いいえ</value>
+  </data>
+  <data name="ViewBook_Check_Save_Btn_Yes" xml:space="preserve">
+    <value>はい</value>
+  </data>
+  <data name="ViewBook_Check_Save_Content" xml:space="preserve">
+    <value>新しい変更情報が見つかりました。保存しますか？（XXXXXXに保存）</value>
+  </data>
+  <data name="ViewBook_Check_Save_Title" xml:space="preserve">
+    <value>保存しますか？</value>
+  </data>
+  <data name="ViewBook_CurrentBookCollection.Text" xml:space="preserve">
+    <value>現在本のコレクション:</value>
+  </data>
+  <data name="ViewBook_Del_Book_Del_Alarm_Content" xml:space="preserve">
+    <value>「XXXXXX」という本を削除してもよろしいですか？</value>
+  </data>
+  <data name="ViewBook_Del_Book_Del_Alarm_Title" xml:space="preserve">
+    <value>本の削除</value>
+  </data>
+  <data name="ViewBook_Del_Book_No_Select_Content" xml:space="preserve">
+    <value>削除したい本を選択してください</value>
+  </data>
+  <data name="ViewBook_Del_Book_No_Select_Title" xml:space="preserve">
+    <value>選択された本はありません</value>
+  </data>
+  <data name="ViewBook_Del_The_Book.Text" xml:space="preserve">
+    <value>本の情報を削除します</value>
+  </data>
+  <data name="ViewBook_Edit_Dialog.PrimaryButtonText" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="ViewBook_Edit_Dialog.SecondaryButtonText" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="ViewBook_Edit_Dialog.Title" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Author" xml:space="preserve">
+    <value>本の作者を編集してください</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Categorys" xml:space="preserve">
+    <value>本のカテゴリーを編集してください</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Country" xml:space="preserve">
+    <value>本の国を編集してください</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Description" xml:space="preserve">
+    <value>本の説明を編集してください</value>
+  </data>
+  <data name="ViewBook_Edit_Title_ISBN" xml:space="preserve">
+    <value>本のISBNを編集してください</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Languages" xml:space="preserve">
+    <value>本の言語を編集してください</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Price" xml:space="preserve">
+    <value>本の価格を編集してください</value>
+  </data>
+  <data name="ViewBook_Edit_Title_PublishDate" xml:space="preserve">
+    <value>本の発行日を編集してください</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Publishers" xml:space="preserve">
+    <value>本の出版社を編集してください</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Subtitle" xml:space="preserve">
+    <value>本のサブタイトルを編集してください</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Tags" xml:space="preserve">
+    <value>本のタグを編集してください</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Title" xml:space="preserve">
+    <value>本のタイトルを編集してください</value>
+  </data>
+  <data name="ViewBook_Edit_Title_Translator" xml:space="preserve">
+    <value>本の翻訳者を編集してください</value>
+  </data>
+  <data name="ViewBook_List_Change_Save_Content" xml:space="preserve">
+    <value>保存されていない新しい編集があります。続行しますか？</value>
+  </data>
+  <data name="ViewBook_No_Book_Update_Content" xml:space="preserve">
+    <value>本の編集がされていないため、保存できませんでした</value>
+  </data>
+  <data name="ViewBook_No_Book_Update_Title" xml:space="preserve">
+    <value>編集された本はありません</value>
+  </data>
+  <data name="ViewBook_No_Save_Content" xml:space="preserve">
+    <value>新しい編集されたところがありますが、まだ保存されていません。続行しますか？</value>
+  </data>
+  <data name="ViewBook_Save_The_Book.Text" xml:space="preserve">
+    <value>本の情報を保存します</value>
+  </data>
+  <data name="ViewBook_TotalItem.Text" xml:space="preserve">
+    <value>本の数:</value>
   </data>
 </root>

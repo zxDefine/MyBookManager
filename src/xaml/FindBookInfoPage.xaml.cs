@@ -110,7 +110,7 @@ namespace MyBookManager
             {
                 foreach(var bookInfo in bookCollection.BookList)
                 {
-                    Boolean bCanAdd = false;
+                    bool bCanAdd = false;
                     if (size != 0) 
                     {
                         foreach(string keyWord in keyWordList)
@@ -190,6 +190,7 @@ namespace MyBookManager
                     if (bCanAdd)
                     {
                         FindBookDrawClass bookDrawInfo = new FindBookDrawClass();
+                        bookDrawInfo.BookID = bookInfo.Id.ToString().PadLeft(5, '0');
                         bookDrawInfo.BookTitle = bookInfo.Title == "" ? "-" : bookInfo.Title;
                         bookDrawInfo.BookSubtitle = bookInfo.Subtitle == "" ? "-" : bookInfo.Subtitle;
                         bookDrawInfo.BookISBN = bookInfo.ISBN == "" ? "-" : bookInfo.ISBN;

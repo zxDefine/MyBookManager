@@ -17,7 +17,7 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton  x:Name="btn_Import" FontWeight="ExtraBold" FontSize="13">
+            <AppBarButton  x:Name="btn_Import" FontWeight="ExtraBold" FontSize="13" Click="btn_Import_Click">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Btn_ImportData_Tip"/>
                 </ToolTipService.ToolTip>
@@ -25,7 +25,7 @@
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xe8b5;"  VerticalAlignment="Center"/>
                 </RelativePanel>
             </AppBarButton>
-            <AppBarButton x:Name="btn_Export" FontWeight="ExtraBold" FontSize="13">
+            <AppBarButton x:Name="btn_Export" FontWeight="ExtraBold" FontSize="13" Click="btn_Export_Click">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Btn_ExportData_Tip"/>
                 </ToolTipService.ToolTip>
@@ -45,10 +45,6 @@
                                 <TextBlock x:Name="icon_ja" FontFamily="Segoe MDL2 Assets" Text="&#xec45;"  VerticalAlignment="Center" Margin="0, 8, 0, 0"/>
                                 <RadioButton x:Name="radBtn_lang_ja" IsChecked="False" RelativePanel.RightOf="icon_ja" VerticalAlignment="Center" IsEnabled="False" Margin="10, 0, 0, 0"/>
                             </RelativePanel>
-                            <RelativePanel x:Name="mfItem_btn_ko">
-                                <TextBlock x:Name="icon_ko" FontFamily="Segoe MDL2 Assets" Text="&#xe88b;"  VerticalAlignment="Center" Margin="0, 8, 0, 0"/>
-                                <RadioButton x:Name="radBtn_lang_ko" IsChecked="False" RelativePanel.RightOf="icon_ko" VerticalAlignment="Center" IsEnabled="False" Margin="10, 0, 0, 0"/>
-                            </RelativePanel>
                             <RelativePanel x:Name="mfItem_btn_en">
                                 <TextBlock x:Name="icon_en" Text="EN" FontSize="12" FontWeight="Bold"  VerticalAlignment="Center" Margin="0, 8, 0, 0"/>
                                 <RadioButton x:Name="radBtn_lang_en" IsChecked="False" RelativePanel.RightOf="icon_en" VerticalAlignment="Center" IsEnabled="False" Margin="8, 0, 0, 0"/>
@@ -63,12 +59,12 @@
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xf2b7;"  VerticalAlignment="Center"/>
                 </RelativePanel>
             </AppBarButton>
-            <AppBarButton x:Name="btn_Help" FontWeight="ExtraBold" FontSize="13">
+            <AppBarButton x:Name="btn_Help" FontWeight="ExtraBold" FontSize="13" Click="btn_Help_Click">
                 <ToolTipService.ToolTip>
-                    <TextBlock x:Uid="Btn_Help_Tip"/>
+                    <TextBlock x:Uid="Btn_Del_Collection"/>
                 </ToolTipService.ToolTip>
                 <RelativePanel>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xe897;"  VerticalAlignment="Center"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xF618;"  VerticalAlignment="Center"/>
                 </RelativePanel>
             </AppBarButton>
         </CommandBar>

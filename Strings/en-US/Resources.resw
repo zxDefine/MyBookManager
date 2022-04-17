@@ -147,11 +147,11 @@
   <data name="Btn_CreateBook_Delete_Last_Tag.Text" xml:space="preserve">
     <value>Delete the last registered tag</value>
   </data>
+  <data name="Btn_Del_Collection.Text" xml:space="preserve">
+    <value>Delete the collection library</value>
+  </data>
   <data name="Btn_ExportData_Tip.Text" xml:space="preserve">
     <value>Export the collection library</value>
-  </data>
-  <data name="Btn_Help_Tip.Text" xml:space="preserve">
-    <value>Help</value>
   </data>
   <data name="Btn_ImportData_Tip.Text" xml:space="preserve">
     <value>Import the collection library</value>
@@ -381,6 +381,21 @@
   <data name="FindBook_Result_Total_Books.Text" xml:space="preserve">
     <value>Total found:</value>
   </data>
+  <data name="Import_Error_Content_Cannot_Cover" xml:space="preserve">
+    <value>The format of the file is incorrect and cannot be read! please re-import the file!</value>
+  </data>
+  <data name="Import_Error_Content_FileName_Error" xml:space="preserve">
+    <value>The file name must be "book_[id]_[CollectionFileName].json", please re-import the file!</value>
+  </data>
+  <data name="Import_Error_Content_Id_Exist" xml:space="preserve">
+    <value>The file ID already exists, please re-import the file!</value>
+  </data>
+  <data name="Import_Error_Content_NameID_Diff" xml:space="preserve">
+    <value>The file name and file ID do not match the file name and ID in the file. please re-import the file!</value>
+  </data>
+  <data name="Import_Error_Title" xml:space="preserve">
+    <value>Import Error!!</value>
+  </data>
   <data name="ISBNSearchRes_Btn" xml:space="preserve">
     <value>OK</value>
   </data>
@@ -395,6 +410,24 @@
   </data>
   <data name="ISBNSearchRes_Yes_Title" xml:space="preserve">
     <value>Found</value>
+  </data>
+  <data name="MainPage_Del_Collection.PrimaryButtonText" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="MainPage_Del_Collection.SecondaryButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="MainPage_Del_Collection.Title" xml:space="preserve">
+    <value>Delete Collection Library</value>
+  </data>
+  <data name="MainPage_Del_Collection_Alarm_Content" xml:space="preserve">
+    <value>Are you sure to delete the collection XXXXXX?</value>
+  </data>
+  <data name="MainPage_Del_Collection_Alarm_Title" xml:space="preserve">
+    <value>Delete The Collection</value>
+  </data>
+  <data name="MainPage_Del_Collection_Content.Text" xml:space="preserve">
+    <value>Please select the collection that you want to delete it</value>
   </data>
   <data name="ViewBook_Btn_Edit.Text" xml:space="preserve">
     <value>Edit</value>
@@ -413,6 +446,21 @@
   </data>
   <data name="ViewBook_CurrentBookCollection.Text" xml:space="preserve">
     <value>Current book collection:</value>
+  </data>
+  <data name="ViewBook_Del_Book_Del_Alarm_Content" xml:space="preserve">
+    <value>Are you sure you want to delete the book 「XXXXXX」?</value>
+  </data>
+  <data name="ViewBook_Del_Book_Del_Alarm_Title" xml:space="preserve">
+    <value>Delete Book</value>
+  </data>
+  <data name="ViewBook_Del_Book_No_Select_Content" xml:space="preserve">
+    <value>Please select the book you want to delete</value>
+  </data>
+  <data name="ViewBook_Del_Book_No_Select_Title" xml:space="preserve">
+    <value>No Selected Book!!</value>
+  </data>
+  <data name="ViewBook_Del_The_Book.Text" xml:space="preserve">
+    <value>Delete the book info</value>
   </data>
   <data name="ViewBook_Edit_Dialog.PrimaryButtonText" xml:space="preserve">
     <value>Save</value>
@@ -473,6 +521,9 @@
   </data>
   <data name="ViewBook_No_Save_Content" xml:space="preserve">
     <value>There are unsaved changes, do you want to continue?</value>
+  </data>
+  <data name="ViewBook_Save_The_Book.Text" xml:space="preserve">
+    <value>Save the book info</value>
   </data>
   <data name="ViewBook_TotalItem.Text" xml:space="preserve">
     <value>Total Books:</value>

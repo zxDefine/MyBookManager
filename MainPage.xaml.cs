@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -73,9 +75,6 @@ namespace MyBookManager
                 case "ja":
                     radBtn_lang_ja.IsChecked = true;
                     break;
-                case "ko":
-                    radBtn_lang_ko.IsChecked = true;
-                    break;
                 case "zh":
                     if(language.Substring(0, 7) == "zh-Hans")
                     {
@@ -100,10 +99,6 @@ namespace MyBookManager
             {
                 currLanguage = "ja";
             }
-            else if (true == radBtn_lang_ko.IsChecked)
-            {
-                currLanguage = "ko";
-            }
             else if (true == radBtn_lang_en.IsChecked)
             {
                 currLanguage = "en-US";
@@ -121,12 +116,6 @@ namespace MyBookManager
                     if (false == radBtn_lang_ja.IsChecked)
                     {
                         displayChangeLanguageDialog(currLanguage, "ja");
-                    }
-                    break;
-                case "mfItem_btn_ko":
-                    if (false == radBtn_lang_ko.IsChecked)
-                    {
-                        displayChangeLanguageDialog(currLanguage, "ko");
                     }
                     break;
                 case "mfItem_btn_en":
@@ -189,6 +178,161 @@ namespace MyBookManager
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(FindBookInfoPage));
+        }
+
+        private async Task<bool> importErrorDialog(string resStr) 
+        {
+            ContentDialog dialog = new ContentDialog
+            {
+                Title = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("Import_Error_Title"),
+                Content = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString(resStr),
+                PrimaryButtonText = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ISBNSearchRes_Btn")
+            };
+
+            //修改按钮样式
+            var bst = new Windows.UI.Xaml.Style(typeof(Button));
+            bst.Setters.Add(new Setter(Button.BackgroundProperty, Windows.UI.Colors.Red));
+            bst.Setters.Add(new Setter(Button.ForegroundProperty, Windows.UI.Colors.White));
+            dialog.PrimaryButtonStyle = bst;
+
+            await dialog.ShowAsync();
+
+            return true;
+        }
+
+        private async void btn_Import_Click(object sender, RoutedEventArgs e)
+        {
+            var picker = new Windows.Storage.Pickers.FileOpenPicker();
+            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+            picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.Desktop;
+            picker.FileTypeFilter.Add(".json");
+
+            var booksFolder = await ApplicationData.Current.RoamingFolder.GetFolderAsync(AppGloableData.appBooksFolderName);
+
+            var file = await picker.PickSingleFileAsync();
+            if (file != null)
+            {
+                //文件格式 book_0_bookName.json
+                var nameList = file.Name.Split('_');
+                int outID = 0;
+                string fileName = nameList[2].Substring(0, nameList[2].Length - 5);
+                if (nameList[0] != "book" || nameList.Length != 3 || !int.TryParse(nameList[1] , out outID)) 
+                {
+                    await importErrorDialog("Import_Error_Content_FileName_Error");
+                    return;
+                }
+
+                //文件ID有不有重复
+                IReadOnlyList<StorageFile> bookFileList = await booksFolder.GetFilesAsync();
+                if (bookFileList.Count > 0) 
+                {
+                    List<int> bookIdList = new List<int>();
+                    foreach (StorageFile bookFile in bookFileList)
+                    {
+                        var bookFileNameList = bookFile.Name.Split('_');
+                        bookIdList.Add(int.Parse(bookFileNameList[1]));
+                    }
+                    if (bookIdList.Contains(outID)) 
+                    {
+                        await importErrorDialog("Import_Error_Content_Id_Exist");
+                        return;
+                    }
+                }
+
+                //是否可以转换成BookCollectionClass
+                string importFileStr = await Windows.Storage.FileIO.ReadTextAsync(file);
+                BookCollectionClass bookCollection = null;
+                try
+                {
+                    bookCollection = JsonConvert.DeserializeObject<BookCollectionClass>(importFileStr);
+                }
+                catch (Exception ex) 
+                {
+                    await importErrorDialog("Import_Error_Content_Cannot_Cover");
+                    return;
+                }
+                //文件ID跟BookName跟文件内容是否匹配
+                bool isIdMatch = bookCollection.Id == outID;
+                bool isNameMatch = bookCollection.Name.Equals(fileName);
+                if (bookCollection != null && (bookCollection.Id != outID || !bookCollection.Name.Equals(fileName)))
+                {
+                    await importErrorDialog("Import_Error_Content_NameID_Diff");
+                    return;
+                }
+
+                await file.CopyAsync(booksFolder, file.Name, NameCollisionOption.ReplaceExisting);
+            }
+            else 
+            {
+                // cancelled
+            }
+        }
+
+        private async void btn_Export_Click(object sender, RoutedEventArgs e)
+        {
+            var folderPicker = new Windows.Storage.Pickers.FolderPicker();
+            folderPicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.Desktop;
+            folderPicker.FileTypeFilter.Add("*");
+
+            Windows.Storage.StorageFolder targetFolder = await folderPicker.PickSingleFolderAsync();
+            var booksFolder = await ApplicationData.Current.RoamingFolder.GetFolderAsync(AppGloableData.appBooksFolderName);
+            if (targetFolder != null)
+            {
+                Windows.Storage.AccessCache.StorageApplicationPermissions.
+                FutureAccessList.AddOrReplace("PickedFolderToken", targetFolder);
+
+                StorageFolder newFolder = null;
+                newFolder = await targetFolder.CreateFolderAsync(booksFolder.Name, CreationCollisionOption.ReplaceExisting);
+
+                foreach (var file in await booksFolder.GetFilesAsync()) 
+                {
+                    await file.CopyAsync(newFolder, file.Name, NameCollisionOption.ReplaceExisting);
+                }
+            }
+            else
+            {
+                // cancelled
+            }
+        }
+
+        private async void btn_Help_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteCollectionDialog dialog = new DeleteCollectionDialog();
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary) 
+            {
+                deleteCollectionExecute(dialog.Content.ToString());
+            }
+        }
+
+        private async void deleteCollectionExecute(string collectionName)
+        {
+            string[] nameList = collectionName.Split('.', '_');
+
+            string content = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("MainPage_Del_Collection_Alarm_Content");
+            content = content.Replace("XXXXXX", nameList[2]+"("+ collectionName+")");
+            ContentDialog dialog = new ContentDialog
+            {
+                Title = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("MainPage_Del_Collection_Alarm_Title"),
+                Content = content,
+                PrimaryButtonText = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ViewBook_Check_Save_Btn_Yes"),
+                CloseButtonText = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ViewBook_Check_Save_Btn_No")
+            };
+
+            //修改按钮样式
+            var bst = new Windows.UI.Xaml.Style(typeof(Button));
+            bst.Setters.Add(new Setter(Button.BackgroundProperty, Windows.UI.Colors.Red));
+            bst.Setters.Add(new Setter(Button.ForegroundProperty, Windows.UI.Colors.White));
+            dialog.PrimaryButtonStyle = bst;
+
+            ContentDialogResult result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var booksFolder = await ApplicationData.Current.RoamingFolder.GetFolderAsync(AppGloableData.appBooksFolderName);
+                StorageFile delFile = await booksFolder.GetFileAsync(collectionName);
+                await delFile.DeleteAsync();
+
+            }
         }
     }
 }

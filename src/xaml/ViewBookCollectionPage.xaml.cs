@@ -662,6 +662,16 @@ namespace MyBookManager
             return true;
         }
 
+        private async Task<bool> DelSave() 
+        {
+            string json = JsonConvert.SerializeObject(bookCollection);
+            var booksFolder = await ApplicationData.Current.RoamingFolder.GetFolderAsync(AppGloableData.appBooksFolderName);
+            var filr = await booksFolder.GetFileAsync(books.getBookFullName(combobox_book_collections.SelectedIndex));
+            await FileIO.WriteTextAsync(filr, json, UnicodeEncoding.Utf8);
+
+            return true;
+        }
+
         private async Task<bool> Save(string dialogTitle, string dialogContent, string btnYes, string btnNO)
         {
 
@@ -714,6 +724,76 @@ namespace MyBookManager
             ContentDialogResult result = await dialog.ShowAsync();
             if (result == ContentDialogResult.Primary) return true;
             else return false;
+        }
+
+        private async void delete_book_info_Click(object sender, RoutedEventArgs e)
+        {
+            if (listview_book_list.SelectedIndex < 0)
+            {
+                //没有选着图书
+                ContentDialog dialog = new ContentDialog
+                {
+                    Title = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ViewBook_Del_Book_No_Select_Title"),
+                    Content = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ViewBook_Del_Book_No_Select_Content"),
+                    PrimaryButtonText = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ISBNSearchRes_Btn")
+                };
+
+                //修改按钮样式
+                var bst = new Windows.UI.Xaml.Style(typeof(Button));
+                bst.Setters.Add(new Setter(Button.BackgroundProperty, Windows.UI.Colors.Red));
+                bst.Setters.Add(new Setter(Button.ForegroundProperty, Windows.UI.Colors.White));
+                dialog.PrimaryButtonStyle = bst;
+
+                await dialog.ShowAsync();
+            }
+            else
+            {
+                string content = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ViewBook_Del_Book_Del_Alarm_Content");
+                string bookName = listview_book_list.SelectedItem.ToString();
+                bool isEdited = bookName[1] == '*';
+                bookName = bookName.Substring(3, bookName.Length - 3);
+                content = content.Replace("XXXXXX", bookName);
+                ContentDialog dialog = new ContentDialog
+                {
+                    Title = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ViewBook_Del_Book_Del_Alarm_Title"),
+                    Content = content,
+                    PrimaryButtonText = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ViewBook_Check_Save_Btn_Yes"),
+                    CloseButtonText = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("ViewBook_Check_Save_Btn_No")
+                };
+
+                //修改按钮样式
+                var bst = new Windows.UI.Xaml.Style(typeof(Button));
+                bst.Setters.Add(new Setter(Button.BackgroundProperty, Windows.UI.Colors.Red));
+                bst.Setters.Add(new Setter(Button.ForegroundProperty, Windows.UI.Colors.White));
+                dialog.PrimaryButtonStyle = bst;
+
+                ContentDialogResult result = await dialog.ShowAsync();
+                if (ContentDialogResult.Primary == result)
+                {
+                    string[] itemInfo = bookName.Split('-');
+                    int itemId = int.Parse(itemInfo[0]);
+
+                    foreach (var bookInfo in bookCollection.BookList)
+                    {
+                        if (bookInfo != null && bookInfo.Id == itemId)
+                        {
+                            bookCollection.BookList.Remove(bookInfo);
+                            break;
+                        }
+                    }
+
+                    await DelSave();
+
+                    if (isEdited)
+                    {
+                        currSelectBookId = -1;
+                        setSaveBtnRed(false);
+                        resetEditStatus();
+                    }
+                    refreshListView(false) ;
+                    resetListTotalNum();
+                }
+            }
         }
     }
 }

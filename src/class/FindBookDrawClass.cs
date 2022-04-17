@@ -24,6 +24,7 @@ namespace MyBookManager
         public string BookTag { get; set; }
         public string BookDescription { get; set; }
         public string BookFromCollection { get; set; }
+        public string BookID { get; set; }
 
         public FindBookDrawClass()
         {
@@ -42,6 +43,7 @@ namespace MyBookManager
             BookTag = "-";
             BookDescription = "-";
             BookFromCollection = "-";
+            BookID = "-";
         }
     }
 }

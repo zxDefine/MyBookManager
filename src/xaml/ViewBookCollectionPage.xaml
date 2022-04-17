@@ -29,7 +29,12 @@
                     <ComboBox x:Name="combobox_book_collections" RelativePanel.RightOf="current_book_collection" Margin="10,0,0,0" Width="250" SelectionChanged="combobox_book_collections_SelectionChanged" Tapped="combobox_book_collections_Tapped"/>
                     <Button x:Name="save_book_info" Margin="50,0,0,0"  RelativePanel.RightOf="combobox_book_collections" RelativePanel.Above="listview_book_list" FontFamily="Segoe MDL2 Assets" Content="&#xE78C;" HorizontalAlignment="Center" FontSize="16" Click="save_book_info_Click">
                         <ToolTipService.ToolTip>
-                            <TextBlock x:Uid="CreateBook_AddTo"/>
+                            <TextBlock x:Uid="ViewBook_Save_The_Book"/>
+                        </ToolTipService.ToolTip>
+                    </Button>
+                    <Button x:Name="delete_book_info" Margin="15,0,0,0" RelativePanel.RightOf="save_book_info" RelativePanel.Above="listview_book_list" FontFamily="Segoe MDL2 Assets" Content="&#xE74D;" HorizontalAlignment="Center" FontSize="16" Click="delete_book_info_Click">
+                        <ToolTipService.ToolTip>
+                            <TextBlock x:Uid="ViewBook_Del_The_Book"/>
                         </ToolTipService.ToolTip>
                     </Button>
                     <local:AlternatingRowListView 

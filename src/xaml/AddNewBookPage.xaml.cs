@@ -714,7 +714,7 @@ namespace MyBookManager
             listview_book_list.Items.Clear();
             foreach (var info in bookCollection.BookList)
             {
-                Boolean bNewBook = false;
+                bool bNewBook = false;
                 foreach (int newBookId in addNewBookIdList) 
                 {
                     if (newBookId == info.Id) 

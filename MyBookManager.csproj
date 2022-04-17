@@ -141,6 +141,9 @@
     <Compile Include="src\xaml\DateBoxEditDialog.xaml.cs">
       <DependentUpon>DateBoxEditDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\xaml\DeleteCollectionDialog.xaml.cs">
+      <DependentUpon>DeleteCollectionDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\xaml\DropdownBoxEditDialog.xaml.cs">
       <DependentUpon>DropdownBoxEditDialog.xaml</DependentUpon>
     </Compile>
@@ -200,6 +203,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="src\xaml\DeleteCollectionDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="src\xaml\DropdownBoxEditDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -250,9 +257,6 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\en-US\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\ko\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\ja\Resources.resw" />
