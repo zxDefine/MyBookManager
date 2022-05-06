@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="75bc632b-ff24-49ab-a693-4487a46eb40e"
-    Publisher="CN=zxDefine"
-    Version="1.0.0.0" />
+    Name="21668zxDefine.2049221C3F7F7"
+    Publisher="CN=85D9F345-57A9-4F49-8883-90677172C0EE"
+    Version="1.0.2.0" />
 
-  <mp:PhoneIdentity PhoneProductId="75bc632b-ff24-49ab-a693-4487a46eb40e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="b3e3b4ca-d502-4ff6-9888-e9ee5dabbd7e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>MyBookManager</DisplayName>
@@ -35,7 +35,7 @@
         DisplayName="MyBookManager"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="MyBookManager"
+        Description="Manage private book collections."
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

@@ -51,7 +51,7 @@ namespace MyBookManager
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            this.Content = inputValue.SelectedDate.ToString().Split('/', ' ')[2];
+            this.Content = inputValue.Date.Year.ToString();
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
@@ -62,7 +62,7 @@ namespace MyBookManager
         {
             var date = (DatePicker)sender;
             IsPrimaryButtonEnabled = false;
-            string newDate = inputValue.SelectedDate.ToString().Split('/', ' ')[2];
+            string newDate = inputValue.Date.Year.ToString();
             if (oldDate != newDate) 
             {
                 IsPrimaryButtonEnabled = true;

@@ -571,7 +571,7 @@ namespace MyBookManager
                     newBook.CoverImageBase64 = currentImageBase64Str;
                     newBook.Language = null == inputLanguage.SelectedItem ? "" : inputLanguage.SelectedItem.ToString();
                     newBook.Publisher = inputPublisher.Text;
-                    newBook.PublishDate = null == inputPublishDate.SelectedDate ? "" : inputPublishDate.SelectedDate.ToString().Split('/', ' ')[2];
+                    newBook.PublishDate = null == inputPublishDate.SelectedDate ? "" : inputPublishDate.Date.Year.ToString();
                     newBook.Author = inputAuthor.Text;
                     newBook.Translator = inputTranslator.Text;
                     newBook.Country = null == inputCountry.SelectedItem ? "" : inputCountry.SelectedItem.ToString();
