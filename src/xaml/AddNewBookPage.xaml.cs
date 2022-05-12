@@ -314,7 +314,7 @@ namespace MyBookManager
 
                             if(bookInfo.items[0].volumeInfo.language != null)
                             {
-                                setInputLanguageAndCountry(bookInfo.items[0].volumeInfo.language);
+                                setInputLanguageAndCountry(inputISBN.Text);
                             }
                         }
                     }
@@ -357,63 +357,77 @@ namespace MyBookManager
             }
         }
 
-        private void setInputLanguageAndCountry(string lan)
+        private void setInputLanguageAndCountry(string isbnCode)
         {
-            string tmpLan = lan.ToUpper();
-            switch (tmpLan)
+            if (isbnCode.Substring(0, 4) == "9787") //中国大陆
             {
-                case "ZH-CN":
-                    inputLanguage.SelectedIndex = (int)AppGloableData.Language.CN;
-                    inputCountry.SelectedIndex = (int)AppGloableData.Country.CN;
-                    break;
-                case "ZH-TW":
-                    inputLanguage.SelectedIndex = (int)AppGloableData.Language.TW;
-                    inputCountry.SelectedIndex = (int)AppGloableData.Country.CN;
-                    break;
-                case "JA-JP":
-                    inputLanguage.SelectedIndex = (int)AppGloableData.Language.JP;
-                    inputCountry.SelectedIndex = (int)AppGloableData.Country.JP;
-                    break;
-                case "KO-KR":
-                    inputLanguage.SelectedIndex = (int)AppGloableData.Language.KR;
-                    inputCountry.SelectedIndex = (int)AppGloableData.Country.KR;
-                    break;
-                case "EN-US":
-                    inputLanguage.SelectedIndex = (int)AppGloableData.Language.EN;
-                    inputCountry.SelectedIndex = (int)AppGloableData.Country.US;
-                    break;
-                case "EN-GB":
-                    inputLanguage.SelectedIndex = (int)AppGloableData.Language.EN;
-                    inputCountry.SelectedIndex = (int)AppGloableData.Country.UK;
-                    break;
-                case "FR-FR":
-                    inputLanguage.SelectedIndex = (int)AppGloableData.Language.FR;
-                    inputCountry.SelectedIndex = (int)AppGloableData.Country.FR;
-                    break;
-                case "ES-ES":
-                    inputLanguage.SelectedIndex = (int)AppGloableData.Language.ES;
-                    inputCountry.SelectedIndex = (int)AppGloableData.Country.ES;
-                    break;
-                case "PT-PT":
-                    inputLanguage.SelectedIndex = (int)AppGloableData.Language.PT;
-                    inputCountry.SelectedIndex = (int)AppGloableData.Country.PT;
-                    break;
-                case "DE-DE":
-                    inputLanguage.SelectedIndex = (int)AppGloableData.Language.DE;
-                    inputCountry.SelectedIndex = (int)AppGloableData.Country.DE;
-                    break;
-                case "IT-IT":
-                    inputLanguage.SelectedIndex = (int)AppGloableData.Language.IT;
-                    inputCountry.SelectedIndex = (int)AppGloableData.Country.IT;
-                    break;
-                case "RU-RU":
-                    inputLanguage.SelectedIndex = (int)AppGloableData.Language.RU;
-                    inputCountry.SelectedIndex = (int)AppGloableData.Country.RU;
-                    break;
-                default:
-                    inputLanguage.SelectedIndex = (int)AppGloableData.Language.OTHER;
-                    inputCountry.SelectedIndex = (int)AppGloableData.Country.OTHER;
-                    break;
+                inputLanguage.SelectedIndex = (int)AppGloableData.Language.CN;
+                inputCountry.SelectedIndex = (int)AppGloableData.Country.CN;
+            }
+            else if (isbnCode.Substring(0, 6) == "978957" //中国台湾
+                    || isbnCode.Substring(0, 6) == "978986" //中国台湾
+                    || isbnCode.Substring(0, 6) == "978962" //中国香港
+                    || isbnCode.Substring(0, 6) == "978988" //中国香港
+                    || isbnCode.Substring(0, 8) == "97899937" //中国澳门
+                    || isbnCode.Substring(0, 8) == "97899965") //中国澳门
+            {
+                inputLanguage.SelectedIndex = (int)AppGloableData.Language.TW;
+                inputCountry.SelectedIndex = (int)AppGloableData.Country.CN;
+            }
+            else if (isbnCode.Substring(0, 4) == "9784") //日本
+            {
+                inputLanguage.SelectedIndex = (int)AppGloableData.Language.JP;
+                inputCountry.SelectedIndex = (int)AppGloableData.Country.JP;
+            }
+            else if (isbnCode.Substring(0, 5) == "97889"
+                     || isbnCode.Substring(0, 5) == "97911") //韩国
+            {
+                inputLanguage.SelectedIndex = (int)AppGloableData.Language.KR;
+                inputCountry.SelectedIndex = (int)AppGloableData.Country.KR;
+            }
+            else if (isbnCode.Substring(0, 4) == "9780"
+                     || isbnCode.Substring(0, 4) == "9781") //英美
+            {
+                inputLanguage.SelectedIndex = (int)AppGloableData.Language.EN;
+                inputCountry.SelectedIndex = (int)AppGloableData.Country.US;
+            }
+            else if (isbnCode.Substring(0, 4) == "9782"
+                     || isbnCode.Substring(0, 5) == "97910") //法国
+            {
+                inputLanguage.SelectedIndex = (int)AppGloableData.Language.FR;
+                inputCountry.SelectedIndex = (int)AppGloableData.Country.FR;
+            }
+            else if (isbnCode.Substring(0, 5) == "97884") //西班牙
+            {
+                inputLanguage.SelectedIndex = (int)AppGloableData.Language.ES;
+                inputCountry.SelectedIndex = (int)AppGloableData.Country.ES;
+            }
+            else if (isbnCode.Substring(0, 6) == "978972"
+                     || isbnCode.Substring(0, 6) == "978989") //葡萄牙
+            {
+                inputLanguage.SelectedIndex = (int)AppGloableData.Language.PT;
+                inputCountry.SelectedIndex = (int)AppGloableData.Country.PT;
+            }
+            else if (isbnCode.Substring(0, 4) == "9783") //德国
+            {
+                inputLanguage.SelectedIndex = (int)AppGloableData.Language.DE;
+                inputCountry.SelectedIndex = (int)AppGloableData.Country.DE;
+            }
+            else if (isbnCode.Substring(0, 5) == "97888"
+                     || isbnCode.Substring(0, 5) == "97912") //意大利
+            {
+                inputLanguage.SelectedIndex = (int)AppGloableData.Language.IT;
+                inputCountry.SelectedIndex = (int)AppGloableData.Country.IT;
+            }
+            else if (isbnCode.Substring(0, 4) == "9785") //俄罗斯
+            {
+                inputLanguage.SelectedIndex = (int)AppGloableData.Language.RU;
+                inputCountry.SelectedIndex = (int)AppGloableData.Country.RU;
+            }
+            else 
+            {
+                inputLanguage.SelectedIndex = (int)AppGloableData.Language.OTHER;
+                inputCountry.SelectedIndex = (int)AppGloableData.Country.OTHER;
             }
         }
 
